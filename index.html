@@ -3,16 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menú Align</title>
-
-<!-- PWA: manifest e íconos -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#009ACE">
-<link rel="icon" href="icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Menú Align">
+<title>Menú Cafetería</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
@@ -291,7 +282,9 @@
     align-items: center;
   }
   .precio-item .nombre { font-size: 0.78rem; color: var(--texto-suave); font-weight: 500; }
-  .precio-item .monto { font-size: 0.9rem; font-weight: 700; color: var(--azul-dark); }
+  .precio-item .precio-valores { text-align: right; }
+  .precio-item .monto { font-size: 0.9rem; font-weight: 700; color: var(--azul-dark); display: block; }
+  .precio-item .iva-nota-dia { font-size: 0.62rem; font-weight: 400; color: var(--texto-suave); display: block; margin-top: 1px; }
   .precio-item.destacado {
     background: var(--azul);
     border-color: var(--azul-dark);
@@ -299,6 +292,7 @@
   }
   .precio-item.destacado .nombre { color: rgba(255,255,255,0.8); }
   .precio-item.destacado .monto { color: white; font-size: 1rem; }
+  .precio-item.destacado .iva-nota-dia { color: rgba(255,255,255,0.75); }
 
   /* LISTA DE PRECIOS */
   .precios-categoria {
@@ -528,7 +522,7 @@
 <!-- ===================== MENÚ SEMANA ===================== -->
 <section id="semana" class="seccion">
   <p class="sec-titulo">📅 Menú de la Semana</p>
-  <p class="sec-sub">29 de junio – 4 de julio, 2026</p>
+  <p class="sec-sub">6 – 11 de julio, 2026</p>
 
   <div class="tabla-wrap">
     <table>
@@ -546,37 +540,37 @@
       <tbody>
         <tr>
           <td>P1</td>
-          <td>Filet de pollo al ajillo</td>
-          <td>Filet de pescado cajún al horno</td>
-          <td>Pechuga de pollo en salsa oriental</td>
-          <td>Muslo de pollo entero en salsa de tomate</td>
-          <td>Filet de tilapia en salsa rosada</td>
+          <td>Pescado en salsa de mariscos</td>
+          <td>Pollo parmesano</td>
+          <td>Filet de pescado a la peruana</td>
+          <td>Filet de pollo en salsa de culantro</td>
+          <td>Pescado hawaiano</td>
           <td>Pollo en salsa de culantro</td>
         </tr>
         <tr>
           <td>P2</td>
-          <td>Lomo de cerdo en salsa mostaza miel</td>
-          <td>Fajitas de res a la mexicana</td>
-          <td>Costilla de cerdo a las hierbas</td>
-          <td>Bistec de res strogonoff</td>
+          <td>Milanesa de res con chimichurri</td>
+          <td>Bistec de cerdo en salsa de manzana</td>
+          <td>Trozos de res salteados con tomate y hongos</td>
+          <td>Cacho de lomo en salsa tamarindo</td>
           <td>Bistec de cerdo con salsa criolla</td>
           <td>Carne mechada en salsa oscura</td>
         </tr>
         <tr>
           <td>P3</td>
-          <td>Burrito estilo mexicano (con carne mechada)</td>
-          <td>Garbanzos con muslito de pollo</td>
-          <td>Estofado de res</td>
-          <td>Canelones con queso y jamón</td>
+          <td>Crepa de pollo y brócoli</td>
+          <td>Croquetas de atún con papa</td>
+          <td>Pasta primavera con pollo</td>
+          <td>Frijoles tiernos con posta de cerdo</td>
           <td>Pastel de yuca con pollo</td>
           <td>–</td>
         </tr>
         <tr>
           <td>P4 <span class="veg">🌿Veg</span></td>
-          <td>Spaguetti con salsa de tomate y albahaca</td>
-          <td>Queso argentino en salsa de fresa</td>
-          <td>Taco vegetariano tex mex con salsa de aguacate</td>
-          <td>Albóndiga de soya con salsa caribeña</td>
+          <td>Pastel de papa con carne de soya</td>
+          <td>Picadillo de papa y palmito con huevo</td>
+          <td>Garbanzos estilo marroquí</td>
+          <td>Tomate relleno de soya gratinado con queso</td>
           <td>Tortas de maduro con frijol</td>
           <td>–</td>
         </tr>
@@ -601,7 +595,7 @@
       </tbody>
     </table>
   </div>
-  <div class="nota-especial">🌴 <strong>Especial miércoles:</strong> Pollo frito con papas — ₡2.610,62 sin IVA</div>
+  <div class="nota-especial">🌴 <strong>Especial miércoles:</strong> Sopa Azteca 🇨🇷 — ₡2.950,00 IVA incluido</div>
 </section>
 
 <!-- ===================== MENÚ DEL DÍA ===================== -->
@@ -610,25 +604,25 @@
   <p class="sec-sub">Seleccioná el día para ver el menú completo</p>
 
   <div class="dia-tabs">
-    <button class="active" onclick="mostrarDia('lunes', this)">Lunes 29</button>
-    <button onclick="mostrarDia('martes', this)">Martes 30</button>
-    <button onclick="mostrarDia('miercoles', this)">Miércoles 1</button>
-    <button onclick="mostrarDia('jueves', this)">Jueves 2</button>
-    <button onclick="mostrarDia('viernes', this)">Viernes 3</button>
-    <button onclick="mostrarDia('sabado', this)">Sábado 4</button>
+    <button class="active" onclick="mostrarDia('lunes', this)">Lunes 6</button>
+    <button onclick="mostrarDia('martes', this)">Martes 7</button>
+    <button onclick="mostrarDia('miercoles', this)">Miércoles 8</button>
+    <button onclick="mostrarDia('jueves', this)">Jueves 9</button>
+    <button onclick="mostrarDia('viernes', this)">Viernes 10</button>
+    <button onclick="mostrarDia('sabado', this)">Sábado 11</button>
   </div>
 
-  <!-- LUNES 29 -->
+  <!-- LUNES 7 -->
   <div id="dia-lunes" class="dia-contenido activo">
     <div class="card">
       <p class="dia-titulo">Lunes</p>
-      <p class="dia-fecha">29 de junio</p>
+      <p class="dia-fecha">6 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Filet de pollo al ajillo</li>
-        <li>Lomo de cerdo en salsa mostaza miel</li>
-        <li>Burrito estilo mexicano (con carne mechada)</li>
-        <li>Spaguetti con salsa de tomate y albahaca <span class="veg">🌿 Veg</span></li>
+        <li>Pescado en salsa de mariscos</li>
+        <li>Milanesa de res con chimichurri</li>
+        <li>Crepa de pollo y brócoli</li>
+        <li>Pastel de papa con carne de soya <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
@@ -641,26 +635,26 @@
       </div>
       <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:6px;">*Aplican para el Combo Ejecutivo</p>
       <div class="precios-dia">
-        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="monto">₡2.260,00</span></div>
-        <div class="precio-item"><span class="nombre">Estándar</span><span class="monto">₡2.015,00</span></div>
-        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Express</span><span class="monto">₡2.260,00</span></div>
+        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
 
-  <!-- MARTES 30 -->
+  <!-- MARTES 8 -->
   <div id="dia-martes" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Martes</p>
-      <p class="dia-fecha">30 de junio</p>
+      <p class="dia-fecha">7 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Filet de pescado cajún al horno</li>
-        <li>Fajitas de res a la mexicana</li>
-        <li>Garbanzos con muslito de pollo</li>
-        <li>Queso argentino en salsa de fresa <span class="veg">🌿 Veg</span></li>
+        <li>Pollo parmesano</li>
+        <li>Bistec de cerdo en salsa de manzana</li>
+        <li>Croquetas de atún con papa</li>
+        <li>Picadillo de papa y palmito con huevo <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
@@ -673,26 +667,26 @@
       </div>
       <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:6px;">*Aplican para el Combo Ejecutivo</p>
       <div class="precios-dia">
-        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="monto">₡2.260,00</span></div>
-        <div class="precio-item"><span class="nombre">Estándar</span><span class="monto">₡2.015,00</span></div>
-        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Express</span><span class="monto">₡2.260,00</span></div>
+        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
 
-  <!-- MIÉRCOLES 1 -->
+  <!-- MIÉRCOLES 9 -->
   <div id="dia-miercoles" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Miércoles 🌴</p>
-      <p class="dia-fecha">1 de julio · Especial: Pollo Frito con Papas</p>
+      <p class="dia-fecha">8 de julio · Especial: Sopa Azteca</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Pechuga de pollo en salsa oriental</li>
-        <li>Costilla de cerdo a las hierbas</li>
-        <li>Estofado de res</li>
-        <li>Taco vegetariano tex mex con salsa de aguacate <span class="veg">🌿 Veg</span></li>
+        <li>Filet de pescado a la peruana</li>
+        <li>Trozos de res salteados con tomate y hongos</li>
+        <li>Pasta primavera con pollo</li>
+        <li>Garbanzos estilo marroquí <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
@@ -705,26 +699,26 @@
       </div>
       <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:6px;">*Aplican para el Combo Ejecutivo</p>
       <div class="precios-dia">
-        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="monto">₡2.260,00</span></div>
-        <div class="precio-item"><span class="nombre">Estándar</span><span class="monto">₡2.015,00</span></div>
-        <div class="precio-item"><span class="nombre">Especial Pollo Frito</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Express</span><span class="monto">₡2.260,00</span></div>
+        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Especial Sopa Azteca</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
 
-  <!-- JUEVES 2 -->
+  <!-- JUEVES 10 -->
   <div id="dia-jueves" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Jueves</p>
-      <p class="dia-fecha">2 de julio</p>
+      <p class="dia-fecha">9 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Muslo de pollo entero en salsa de tomate</li>
-        <li>Bistec de res strogonoff</li>
-        <li>Canelones con queso y jamón</li>
-        <li>Albóndiga de soya con salsa caribeña <span class="veg">🌿 Veg</span></li>
+        <li>Filet de pollo en salsa de culantro</li>
+        <li>Cacho de lomo en salsa tamarindo</li>
+        <li>Frijoles tiernos con posta de cerdo</li>
+        <li>Tomate relleno de soya gratinado con queso <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
@@ -737,23 +731,23 @@
       </div>
       <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:6px;">*Aplican para el Combo Ejecutivo</p>
       <div class="precios-dia">
-        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="monto">₡2.260,00</span></div>
-        <div class="precio-item"><span class="nombre">Estándar</span><span class="monto">₡2.015,00</span></div>
-        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Express</span><span class="monto">₡2.260,00</span></div>
+        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
 
-  <!-- VIERNES 3 -->
+  <!-- VIERNES 11 -->
   <div id="dia-viernes" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Viernes</p>
-      <p class="dia-fecha">3 de julio</p>
+      <p class="dia-fecha">10 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Filet de tilapia en salsa rosada</li>
+        <li>Pescado hawaiano</li>
         <li>Bistec de cerdo con salsa criolla</li>
         <li>Pastel de yuca con pollo</li>
         <li>Tortas de maduro con frijol <span class="veg">🌿 Veg</span></li>
@@ -769,24 +763,24 @@
       </div>
       <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:6px;">*Aplican para el Combo Ejecutivo</p>
       <div class="precios-dia">
-        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="monto">₡2.260,00</span></div>
-        <div class="precio-item"><span class="nombre">Estándar</span><span class="monto">₡2.015,00</span></div>
-        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Express</span><span class="monto">₡2.260,00</span></div>
+        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
 
-  <!-- SÁBADO 4 -->
+  <!-- SÁBADO 12 -->
   <div id="dia-sabado" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Sábado</p>
-      <p class="dia-fecha">4 de julio</p>
+      <p class="dia-fecha">11 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
         <li>Pollo en salsa de culantro</li>
-        <li>Carne mechada en salsa oscura</li>
+        <li>Carne mechada en salsa oscura <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
@@ -799,11 +793,11 @@
       </div>
       <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:6px;">*Aplican para el Combo Ejecutivo</p>
       <div class="precios-dia">
-        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="monto">₡2.260,00</span></div>
-        <div class="precio-item"><span class="nombre">Estándar</span><span class="monto">₡2.015,00</span></div>
-        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="monto">₡2.610,62</span></div>
-        <div class="precio-item"><span class="nombre">Express</span><span class="monto">₡2.260,00</span></div>
+        <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Bowls / Wraps</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
@@ -928,15 +922,6 @@
     document.querySelectorAll('.dia-tabs button').forEach(b => b.classList.remove('active'));
     document.getElementById('dia-' + id).classList.add('activo');
     btn.classList.add('active');
-  }
-
-  // Registro del Service Worker (permite instalar la app y usarla offline)
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(err => {
-        console.log('Error registrando service worker:', err);
-      });
-    });
   }
 </script>
 </body>
