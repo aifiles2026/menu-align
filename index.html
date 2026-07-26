@@ -115,8 +115,17 @@
     color: white;
     font-weight: 700;
     font-size: 0.92rem;
-    padding: 5px 14px;
+    padding: 5px 14px 7px;
     border-radius: 20px;
+    text-align: center;
+  }
+  .precio-badge .iva-nota {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: white;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
   }
   .iva-nota {
     display: block;
@@ -373,7 +382,8 @@
 </header>
 
 <nav>
-  <button class="active" onclick="mostrarSeccion('almuerzos', this)">🍱 Almuerzos</button>
+  <button class="active" onclick="mostrarSeccion('eventos', this)">🎉 Eventos</button>
+  <button onclick="mostrarSeccion('almuerzos', this)">🍱 Almuerzos</button>
   <button onclick="mostrarSeccion('desayunos', this)">☀️ Desayunos</button>
   <button onclick="mostrarSeccion('grill', this)">🔥 Línea Grill</button>
   <button onclick="mostrarSeccion('semana', this)">📅 Menú de la Semana</button>
@@ -382,7 +392,174 @@
 </nav>
 
 <!-- ===================== ALMUERZOS ===================== -->
-<section id="almuerzos" class="seccion activa">
+<!-- ===================== EVENTOS ===================== -->
+<section id="eventos" class="seccion activa">
+  <p class="sec-titulo">🎉 Eventos Especiales</p>
+  <p class="sec-sub">Solicitá tu evento a eventos@cocinartecr.com · Mínimo 3 días hábiles de anticipación</p>
+
+  <!-- DESAYUNOS -->
+  <div class="card almuerzo-combo">
+    <h3>☀️ Desayuno Americano</h3>
+    <p>Mini Parfait, huevo picado, tocineta, hashbrown, platón de panes (cangrejos, brioche, integral y masa madre) y jugo de naranja.</p>
+  </div>
+
+  <div class="card almuerzo-combo">
+    <h3>☀️ Desayuno Premium</h3>
+    <p>Estación de panes dulces y salados · Estación de quesos y fiambres · Huevo picado · Jugo de naranja.</p>
+  </div>
+
+  <div class="card almuerzo-combo">
+    <h3>☀️ Sándwich Panini de Desayuno</h3>
+    <p>Relleno a elegir: carne, pollo, jamón de pavo. Acompañado de tacita de uva, fresa y mango.</p>
+  </div>
+
+  <!-- BRUNCH -->
+  <div class="card almuerzo-combo">
+    <h3>🥂 Brunch</h3>
+    <p>• Brocheta Caprese con tomate cherry<br>• Mini ceviche de palmito o pejibaye<br>• Burrito de desayuno con pinto, tocineta y queso tierno<br>• Wrap de jamón de pavo o hummus con tortilla a las hierbas<br>• Mini pita con pollo grill en aderezo mostaza miel<br>• Mini shot de pie de limón<br>• Mini cheesecake (Oreo o Baileys)<br>• Mini flan cubano</p>
+  </div>
+
+  <!-- BOCADILLOS -->
+  <div class="card almuerzo-combo">
+    <h3>🧺 Bocadillos — Opción +1</h3>
+    <p>Tres bocadillos tamaño pequeño (ver lista a elegir). Empacado en cajitas kraft con ventanilla.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🧺 Bocadillos — Opción +2</h3>
+    <p>Tres bocadillos tamaño mediano (ver lista a elegir). Empacado en cajitas kraft con ventanilla.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🧺 Bocadillos — Opción +3</h3>
+    <p>Tres bocadillos: 2 pequeños y 1 premium (ver lista a elegir). Empacado en cajitas kraft.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🧺 Bocadillos — Opción +4</h3>
+    <p>Tres bocadillos: 2 medianos y 1 premium (ver lista a elegir). Empacado en cajitas kraft.</p>
+  </div>
+
+  <!-- LISTA BOCADILLOS -->
+  <div class="card" style="border-color:var(--azul-light);">
+    <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:10px;">📋 Lista de bocadillos a elegir</h3>
+    <p class="section-label">Regular Pequeño</p>
+    <p style="font-size:0.83rem;line-height:1.6;">Hojaldre relleno de: dulce de leche, mora, guayaba, manzana, crema pastelera, fresa, piña · Hojaldre de palmito, jamón, queso, enchilada de papa, pollo, carne mechada o carne molida.</p>
+    <p class="section-label" style="margin-top:10px;">Regular Mediano</p>
+    <p style="font-size:0.83rem;line-height:1.6;">Empanada de piña · Pañuelo de crema pastelera.</p>
+    <p class="section-label" style="margin-top:10px;">Premium</p>
+    <p style="font-size:0.83rem;line-height:1.6;">Cupcake de zanahoria con lustre de queso crema y nueces · Cangrejo con jamón, queso y pesto · Canasta de pollo · Tartaleta de crema con frutas · Mini pita de pollo · Mini club sándwich de jamón y tocineta · Cupcake de chocolate · Niditos con relleno de dulce de leche o fresa · Empanadita de palmito.</p>
+  </div>
+
+  <!-- LUNCH BOX -->
+  <div class="card almuerzo-combo">
+    <h3>📦 Lunch Box +1</h3>
+    <p>Wrap de pollo estilo César, jugo de naranja 100%, galleta de arroz inflado cubierta de yogurt, banano.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>📦 Lunch Box +2</h3>
+    <p>Pan ciabatta de mano de piedra, yogurt con topping de granola con manzana verde grande.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>📦 Lunch Box +3</h3>
+    <p>Trenza especial de pollo, café frío Britt, fresas con leche condensada.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>📦 Lunch Box +4</h3>
+    <p>Poke de frutas rojas, snack saludable de palitos de aceite de oliva y Agua Alma.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>📦 Lunch Box +5</h3>
+    <p>Croissant de salami con salsa pizza y queso, yogurt de botella griego, barrita de cereal, aloe pequeño sin azúcar.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>📦 Lunch Box +6</h3>
+    <p>Pan brioche relleno de jamón de pavo gratinado con tomate.</p>
+  </div>
+
+  <!-- ALMUERZOS EJECUTIVOS -->
+  <div class="card almuerzo-combo">
+    <h3>🍽️ Almuerzo Ejecutivo +1</h3>
+    <p>Quesadilla de birria con caldo, ensalada (pico de gallo en cama de lechuga).<br><em>Vegetariano: Quesadilla caprese con salsa pizza.</em></p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🍽️ Almuerzo Ejecutivo +2</h3>
+    <p>Churrasco de res a la parrilla con chimichurri argentino, puré de papa gratinado con queso mozzarella, pincho de vegetales, ensalada texana.<br><em>Vegetariano: Arroz con palmito.</em></p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🍽️ Almuerzo Ejecutivo +3</h3>
+    <p>Pechuga de pollo en salsa (chipotle, BBQ, blanca o amatriciana), puré de papa, mini vegetales, ensalada estilo italiano.<br><em>Vegetariano: Vegetales.</em></p>
+  </div>
+
+  <!-- ALMUERZOS TICOS -->
+  <div class="card almuerzo-combo">
+    <h3>🇨🇷 Casado Tradicional</h3>
+    <p>Proteína a elegir: carne mechada, pollo en salsa, chuleta de cerdo, pollo a la plancha, pescado con limón o bistec de res. Con arroz, frijoles, vegetales, maduro y ensalada verde.<br><em>Vegano: salteado de garbanzos, tortas de soya, crema de ayote, canelones de soya.</em></p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🇨🇷 Caribeño</h3>
+    <p>Rice and beans con pollo caribeño, plátano maduro y ensalada criolla (repollo, zanahoria, pico de gallo y culantro).</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🇨🇷 Arrocito con Pollo</h3>
+    <p>Arroz con pollo, frijoles molidos, papas tostadas, ensalada verde o rusa.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>🇨🇷 Comida Rápida</h3>
+    <p>Chifrijo CocinArte con doraditas, aguacate y pico de gallo.</p>
+  </div>
+
+  <!-- ALMUERZOS PREMIUM -->
+  <div class="card almuerzo-combo">
+    <h3>⭐ Almuerzo Premium +1</h3>
+    <p>Medallones de pollo rellenos de queso gouda y chile morrón en salsa bechamel, o rellenos de espinaca y queso ricotta con salsa florentina. Acompañado de papas gratinadas, mini vegetales y ensalada verde frutal.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>⭐ Almuerzo Premium +2</h3>
+    <p>Salmón en salsa de naranja o de eneldo, acompañado de brocheta de vegetales, papitas presidente y ensalada primavera de vegetales.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>⭐ Almuerzo Premium +3</h3>
+    <p>Filete Mignon bañado con reducción de vinagre balsámico, sobre cama de espárragos y zanahoria, acompañado de arroz con almendras y ensalada griega.</p>
+  </div>
+  <div class="card almuerzo-combo">
+    <h3>⭐ Almuerzo Premium +4</h3>
+    <p>Lomito de res en salsa con hongos.</p>
+  </div>
+
+  <!-- POSTRES -->
+  <div class="card almuerzo-combo">
+    <h3>🍰 Postres</h3>
+    <p>• Tres leches (con dulce de leche o rompope)<br>• Cheesecake (fresa, maracuyá, mora, Oreo o dulce de leche)<br>• Pie de limón (horneado con merengue)<br>• Arroz con leche (dulce de leche, ron con pasas, piña colada, churchill o tradicional)<br>• Tiramisú</p>
+  </div>
+
+  <!-- QUEQUES Y COMBOS -->
+  <div class="card almuerzo-combo">
+    <h3>🎂 Combos de Queque (20–24 porciones) con Helado y Gaseosas</h3>
+    <p>• Tiramisú<br>• Queque tradicional de chocolate<br>• Torta Chilena<br>• Carlota fría de melocotón<br>• Carlota fría de frutas<br>• Cheesecake de fresa<br>• Torta alemana</p>
+  </div>
+
+  <!-- FOOD TRUCK -->
+  <div class="card almuerzo-combo" style="border-color:var(--azul);background:#e6f5fb;">
+    <h3>🚚 Food Truck VIP</h3>
+    <p>Cotice según cantidad de personas, lugar y horario de la actividad.</p>
+    <div class="precio-row">
+      <span class="precio-badge">Solicitar cotización<span class="iva-nota">eventos@cocinartecr.com</span></span>
+    </div>
+  </div>
+
+  <!-- CONDICIONES -->
+  <div class="card" style="background:#fff8e6;border-color:#f5c518;">
+    <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:10px;">📋 Condiciones del Servicio</h3>
+    <p style="font-size:0.82rem;line-height:1.7;color:var(--texto);">
+      1. Solicitá tu evento a <strong>eventos@cocinartecr.com</strong><br>
+      2. Mínimo <strong>3 días hábiles</strong> de anticipación (ej: si es jueves, solicitá el lunes).<br>
+      3. Indicá la opción de menú elegida. Variaciones se aceptan con 3 días hábiles.<br>
+      4. Cambios y cancelaciones con <strong>24 horas de anticipación</strong>.<br>
+      5. Detallá: nombre y teléfono del encargado, cantidad de comensales, tiempos de comida, horas de servicio, si es buffet o empacado, si requiere saloneros o mantelería.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== ALMUERZOS ===================== -->
+<section id="almuerzos" class="seccion">
   <p class="sec-titulo">🍱 Almuerzos</p>
   <p class="sec-sub">Combos disponibles de lunes a sábado</p>
 
@@ -431,7 +608,7 @@
 
   <div class="card almuerzo-combo" style="border-color:var(--azul); background:#e6f5fb;">
     <h3>🌴 Especial Miércoles</h3>
-    <p></p>
+    <p><strong>ESPECIAL: ARROZ CON CAMARONES</strong></p>
     <div class="precio-row">
       <span class="precio-badge">₡2.950,00<span class="iva-nota">IVA incluido</span></span>
       <span class="plus-badge">⭐ Hazlo PLUS por ₡1.000 — postre + gaseosa 350ml (IVA incluido)</span>
@@ -522,7 +699,7 @@
 <!-- ===================== MENÚ SEMANA ===================== -->
 <section id="semana" class="seccion">
   <p class="sec-titulo">📅 Menú de la Semana</p>
-  <p class="sec-sub">20 – 25 de julio, 2026</p>
+  <p class="sec-sub">27 de julio – 1 de agosto, 2026</p>
 
   <div class="tabla-wrap">
     <table>
@@ -540,62 +717,62 @@
       <tbody>
         <tr>
           <td>P1</td>
-          <td>Pechuga de pollo al achiote</td>
-          <td>Carne mechada estilo mexicano (chile, cebolla, tomate y cilantro fresco)</td>
-          <td>Filet de pescado con salsa de tomate y chile morrón</td>
-          <td>Bistec de cerdo en salsa BBQ</td>
-          <td>Pechuga de pollo a la italiana</td>
-          <td>Filet de pescado al limón</td>
+          <td>Pechuga de pollo en salsa mostaza</td>
+          <td>Filet de pescado con eneldo</td>
+          <td>Pollo en salsa blanca con maíz dulce</td>
+          <td>Muslo de pollo a la naranja</td>
+          <td>Filet de pescado a la mantequilla y albahaca</td>
+          <td>Milanesa de pollo con salsa rosada</td>
         </tr>
         <tr>
           <td>P2</td>
-          <td>Chuleta de cerdo estilo criollo (olores y especias locales)</td>
-          <td>Pollo en salsa teriyaki</td>
-          <td>Trozos de res strogonoff</td>
-          <td>Fajitas de pollo con hongos y palmito en salsa aurora</td>
-          <td>Tortas de carne molida de res en salsa oscura</td>
-          <td>Bistec de res en salsa de cebolla</td>
+          <td>Fajitas de cerdo al curry</td>
+          <td>Bistec de res en salsa oscura con hongos</td>
+          <td>Lonjas de cerdo entomatadas</td>
+          <td>Trocitos de res a la pimienta</td>
+          <td>Chuleta ahumada encebollada</td>
+          <td>Fajitas de res mixtas de res y cerdo con chile y cebolla</td>
         </tr>
         <tr>
           <td>P3</td>
-          <td>Picadillo de papa con carne tradicional</td>
-          <td>Espagueti alfredo (salsa cremosa con queso)</td>
-          <td>–</td>
-          <td>Pastel de yuca con carne mechada</td>
-          <td>Garbanzos con trozos de cerdo (posta)</td>
+          <td>Pasta a la boloñesa (penne)</td>
+          <td>Pastel de papa con pollo</td>
+          <td>⭐ ESPECIAL: Arroz con camarones</td>
+          <td>Flauta de pulled pork con salsa BBQ</td>
+          <td>Chile relleno con carne mechada</td>
           <td>–</td>
         </tr>
         <tr>
           <td>P4 <span class="veg">🌿Veg</span></td>
-          <td>Pastel de plátano maduro con frijoles</td>
-          <td>Barbudos con queso tradicionales</td>
-          <td>Tortas de soya en salsa caribeña</td>
-          <td>Sopa negra costarricense</td>
-          <td>Arroz con palmito (estilo pastel)</td>
-          <td>Zucchini relleno con soya</td>
+          <td>Tortas de garbanzo con aderezo griego</td>
+          <td>Chancleta rellena de queso</td>
+          <td>Chicharrones de queso en salsa marinara</td>
+          <td>Arroz estilo cantonés con huevo y hongos</td>
+          <td>Chile relleno con queso envuelto en huevo</td>
+          <td>Sopa cremosa de frijoles blancos</td>
         </tr>
         <tr>
           <td>G1</td>
-          <td>Vegetales mixtos (brócoli, coliflor, zucchini)</td>
-          <td>Zucchini con zanahoria</td>
-          <td>Picadillo de chayote tradicional</td>
-          <td>Ayote tierno a la mexicana con tomate, cebolla y chile</td>
-          <td>Antipasto (zucchini, berenjena, tomate)</td>
-          <td>Vainicas salteadas con maíz dulce</td>
+          <td>Coliflor, zucchini y chile dulce</td>
+          <td>Vainicas con zanahoria, maíz dulce y naranja</td>
+          <td>Zucchini al ajillo</td>
+          <td>Chayote con maíz dulce</td>
+          <td>Ayote tierno salteado con chile y cebolla</td>
+          <td>Guiso de chayote</td>
         </tr>
         <tr>
           <td>G2</td>
-          <td>Camote al horno / Plátano maduro</td>
-          <td>Pan en rodaja especiado / Plátano maduro</td>
+          <td>Pan con ajo y pesto / Plátano maduro</td>
+          <td>Yuca al mojo / Plátano maduro</td>
+          <td>Chips de plátano maduro / Plátano maduro</td>
+          <td>Papitas a las hierbas / Plátano maduro</td>
+          <td>Puré de camote / Plátano maduro</td>
           <td>Doraditas / Plátano maduro</td>
-          <td>Papas con achiote / Plátano maduro</td>
-          <td>Elote con margarina / Plátano maduro</td>
-          <td>Puré de yuca / Plátano maduro</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="nota-especial">🌴 <strong>Especial miércoles:</strong> Rice and beans con pollo en salsa caribeña 🇨🇷 — ₡2.950,00 IVA incluido</div>
+  <div class="nota-especial">🌴 <strong>Especial miércoles:</strong> Arroz con camarones 🇨🇷 — ₡2.950,00 IVA incluido</div>
 </section>
 
 <!-- ===================== MENÚ DEL DÍA ===================== -->
@@ -604,33 +781,33 @@
   <p class="sec-sub">Seleccioná el día para ver el menú completo</p>
 
   <div class="dia-tabs">
-    <button class="active" onclick="mostrarDia('lunes', this)">Lunes 20</button>
-    <button onclick="mostrarDia('martes', this)">Martes 21</button>
-    <button onclick="mostrarDia('miercoles', this)">Miércoles 22</button>
-    <button onclick="mostrarDia('jueves', this)">Jueves 23</button>
-    <button onclick="mostrarDia('viernes', this)">Viernes 24</button>
-    <button onclick="mostrarDia('sabado', this)">Sábado 25</button>
+    <button class="active" onclick="mostrarDia('lunes', this)">Lunes 27</button>
+    <button onclick="mostrarDia('martes', this)">Martes 28</button>
+    <button onclick="mostrarDia('miercoles', this)">Miércoles 29</button>
+    <button onclick="mostrarDia('jueves', this)">Jueves 30</button>
+    <button onclick="mostrarDia('viernes', this)">Viernes 31</button>
+    <button onclick="mostrarDia('sabado', this)">Sábado 1</button>
   </div>
 
-  <!-- LUNES 20 -->
+  <!-- LUNES 27 -->
   <div id="dia-lunes" class="dia-contenido activo">
     <div class="card">
       <p class="dia-titulo">Lunes</p>
-      <p class="dia-fecha">20 de julio</p>
+      <p class="dia-fecha">27 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Pechuga de pollo al achiote</li>
-        <li>Chuleta de cerdo estilo criollo (olores y especias locales)</li>
-        <li>Picadillo de papa con carne tradicional</li>
-        <li>Pastel de plátano maduro con frijoles <span class="veg">🌿 Veg</span></li>
+        <li>Pechuga de pollo en salsa mostaza</li>
+        <li>Fajitas de cerdo al curry</li>
+        <li>Pasta a la boloñesa (penne)</li>
+        <li>Tortas de garbanzo con aderezo griego <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
         <span class="acomp-tag">Arroz</span>
         <span class="acomp-tag">Frijoles</span>
         <span class="acomp-tag">Ensalada</span>
-        <span class="acomp-tag">Vegetales mixtos (brócoli, coliflor, zucchini)</span>
-        <span class="acomp-tag">Camote al horno / Plátano maduro</span>
+        <span class="acomp-tag">Coliflor, zucchini y chile dulce</span>
+        <span class="acomp-tag">Pan con ajo y pesto / Plátano maduro</span>
         <span class="acomp-tag exec">⭐ Antojito especial*</span>
         <span class="acomp-tag exec">⭐ Entrada*</span>
       </div>
@@ -645,25 +822,25 @@
     </div>
   </div>
 
-  <!-- MARTES 21 -->
+  <!-- MARTES 28 -->
   <div id="dia-martes" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Martes</p>
-      <p class="dia-fecha">21 de julio</p>
+      <p class="dia-fecha">28 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Carne mechada estilo mexicano</li>
-        <li>Pollo en salsa teriyaki</li>
-        <li>Espagueti alfredo (salsa cremosa con queso)</li>
-        <li>Barbudos con queso tradicionales <span class="veg">🌿 Veg</span></li>
+        <li>Filet de pescado con eneldo</li>
+        <li>Bistec de res en salsa oscura con hongos</li>
+        <li>Pastel de papa con pollo</li>
+        <li>Chancleta rellena de queso <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
         <span class="acomp-tag">Arroz</span>
         <span class="acomp-tag">Frijoles</span>
         <span class="acomp-tag">Ensalada</span>
-        <span class="acomp-tag">Zucchini con zanahoria</span>
-        <span class="acomp-tag">Pan en rodaja especiado / Plátano maduro</span>
+        <span class="acomp-tag">Vainicas con zanahoria, maíz dulce y naranja</span>
+        <span class="acomp-tag">Yuca al mojo / Plátano maduro</span>
         <span class="acomp-tag exec">⭐ Antojito especial*</span>
         <span class="acomp-tag exec">⭐ Entrada*</span>
       </div>
@@ -678,24 +855,24 @@
     </div>
   </div>
 
-  <!-- MIÉRCOLES 22 -->
+  <!-- MIÉRCOLES 29 -->
   <div id="dia-miercoles" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Miércoles 🌴</p>
-      <p class="dia-fecha">22 de julio · Especial: Rice and beans con pollo en salsa caribeña</p>
+      <p class="dia-fecha">29 de julio · Especial: Arroz con camarones</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Filet de pescado con salsa de tomate y chile morrón</li>
-        <li>Trozos de res strogonoff</li>
-        <li>Tortas de soya en salsa caribeña <span class="veg">🌿 Veg</span></li>
+        <li>Pollo en salsa blanca con maíz dulce</li>
+        <li>Lonjas de cerdo entomatadas</li>
+        <li>Chicharrones de queso en salsa marinara <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
         <span class="acomp-tag">Arroz</span>
         <span class="acomp-tag">Frijoles</span>
         <span class="acomp-tag">Ensalada</span>
-        <span class="acomp-tag">Picadillo de chayote tradicional</span>
-        <span class="acomp-tag">Doraditas / Plátano maduro</span>
+        <span class="acomp-tag">Zucchini al ajillo</span>
+        <span class="acomp-tag">Chips de plátano maduro / Plátano maduro</span>
         <span class="acomp-tag exec">⭐ Antojito especial*</span>
         <span class="acomp-tag exec">⭐ Entrada*</span>
       </div>
@@ -703,32 +880,32 @@
       <div class="precios-dia">
         <div class="precio-item destacado"><span class="nombre">Combo Ejecutivo</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
         <div class="precio-item"><span class="nombre">Estándar</span><span class="precio-valores"><span class="monto">₡2.277,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
-        <div class="precio-item"><span class="nombre">Especial Rice and Beans</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
+        <div class="precio-item"><span class="nombre">Especial Arroz con Camarones</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
         <div class="precio-item"><span class="nombre">Comida Rápida</span><span class="precio-valores"><span class="monto">₡2.950,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
         <div class="precio-item"><span class="nombre">Express</span><span class="precio-valores"><span class="monto">₡2.554,00</span><span class="iva-nota-dia">IVA incluido</span></span></div>
       </div>
     </div>
   </div>
 
-  <!-- JUEVES 23 -->
+  <!-- JUEVES 30 -->
   <div id="dia-jueves" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Jueves</p>
-      <p class="dia-fecha">23 de julio</p>
+      <p class="dia-fecha">30 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Bistec de cerdo en salsa BBQ</li>
-        <li>Fajitas de pollo con hongos y palmito en salsa aurora</li>
-        <li>Pastel de yuca con carne mechada</li>
-        <li>Sopa negra costarricense <span class="veg">🌿 Veg</span></li>
+        <li>Muslo de pollo a la naranja</li>
+        <li>Trocitos de res a la pimienta</li>
+        <li>Flauta de pulled pork con salsa BBQ</li>
+        <li>Arroz estilo cantonés con huevo y hongos <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
         <span class="acomp-tag">Arroz</span>
         <span class="acomp-tag">Frijoles</span>
         <span class="acomp-tag">Ensalada</span>
-        <span class="acomp-tag">Ayote tierno a la mexicana con tomate, cebolla y chile</span>
-        <span class="acomp-tag">Papas con achiote / Plátano maduro</span>
+        <span class="acomp-tag">Chayote con maíz dulce</span>
+        <span class="acomp-tag">Papitas a las hierbas / Plátano maduro</span>
         <span class="acomp-tag exec">⭐ Antojito especial*</span>
         <span class="acomp-tag exec">⭐ Entrada*</span>
       </div>
@@ -743,25 +920,25 @@
     </div>
   </div>
 
-  <!-- VIERNES 24 -->
+  <!-- VIERNES 31 -->
   <div id="dia-viernes" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Viernes</p>
-      <p class="dia-fecha">24 de julio</p>
+      <p class="dia-fecha">31 de julio</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Pechuga de pollo a la italiana</li>
-        <li>Tortas de carne molida de res en salsa oscura</li>
-        <li>Garbanzos con trozos de cerdo (posta)</li>
-        <li>Arroz con palmito (estilo pastel) <span class="veg">🌿 Veg</span></li>
+        <li>Filet de pescado a la mantequilla y albahaca</li>
+        <li>Chuleta ahumada encebollada</li>
+        <li>Chile relleno con carne mechada</li>
+        <li>Chile relleno con queso envuelto en huevo <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
         <span class="acomp-tag">Arroz</span>
         <span class="acomp-tag">Frijoles</span>
         <span class="acomp-tag">Ensalada</span>
-        <span class="acomp-tag">Antipasto (zucchini, berenjena, tomate)</span>
-        <span class="acomp-tag">Elote con margarina / Plátano maduro</span>
+        <span class="acomp-tag">Ayote tierno salteado con chile y cebolla</span>
+        <span class="acomp-tag">Puré de camote / Plátano maduro</span>
         <span class="acomp-tag exec">⭐ Antojito especial*</span>
         <span class="acomp-tag exec">⭐ Entrada*</span>
       </div>
@@ -776,24 +953,24 @@
     </div>
   </div>
 
-  <!-- SÁBADO 25 -->
+  <!-- SÁBADO 1 -->
   <div id="dia-sabado" class="dia-contenido">
     <div class="card">
       <p class="dia-titulo">Sábado</p>
-      <p class="dia-fecha">25 de julio</p>
+      <p class="dia-fecha">1 de agosto</p>
       <p class="section-label">Plato principal</p>
       <ul class="plato-list">
-        <li>Filet de pescado al limón</li>
-        <li>Bistec de res en salsa de cebolla</li>
-        <li>Zucchini relleno con soya <span class="veg">🌿 Veg</span></li>
+        <li>Milanesa de pollo con salsa rosada</li>
+        <li>Fajitas de res mixtas de res y cerdo con chile y cebolla</li>
+        <li>Sopa cremosa de frijoles blancos <span class="veg">🌿 Veg</span></li>
       </ul>
       <p class="section-label">Acompañamientos</p>
       <div class="acomp-grid">
         <span class="acomp-tag">Arroz</span>
         <span class="acomp-tag">Frijoles</span>
         <span class="acomp-tag">Ensalada</span>
-        <span class="acomp-tag">Vainicas salteadas con maíz dulce</span>
-        <span class="acomp-tag">Puré de yuca / Plátano maduro</span>
+        <span class="acomp-tag">Guiso de chayote</span>
+        <span class="acomp-tag">Doraditas / Plátano maduro</span>
         <span class="acomp-tag exec">⭐ Antojito especial*</span>
         <span class="acomp-tag exec">⭐ Entrada*</span>
       </div>
