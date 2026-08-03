@@ -360,9 +360,9 @@
 <!-- NAVEGACIÓN PRINCIPAL -->
 <nav class="nav-tabs">
   <button class="nav-tab active" onclick="showSection('desayunos', this)">☀️ Desayunos</button>
+  <button class="nav-tab" onclick="showSection('dias', this)">📋 Menú del Día</button>
   <button class="nav-tab" onclick="showSection('grill', this)">🔥 Línea Grill</button>
   <button class="nav-tab" onclick="showSection('semana', this)">📅 Menú de la Semana</button>
-  <button class="nav-tab" onclick="showSection('dias', this)">📋 Menú del Día</button>
 </nav>
 
 <main class="main">
@@ -556,6 +556,7 @@
       <div class="dias-nav">
         <button class="dia-btn active" onclick="showDia('lunes', this)">Lunes</button>
         <button class="dia-btn" onclick="showDia('martes', this)">Martes</button>
+        <button class="dia-btn" onclick="showDia('miercoles', this)">Miércoles</button>
         <button class="dia-btn" onclick="showDia('jueves', this)">Jueves</button>
         <button class="dia-btn" onclick="showDia('viernes', this)">Viernes</button>
         <button class="dia-btn" onclick="showDia('sabado', this)">Sábado</button>
@@ -624,6 +625,47 @@
             <li>Frijoles</li>
             <li>Ensalada</li>
             <li>Ayote tierno con vainica</li>
+            <li><strong>Antojito especial*</strong></li>
+            <li><strong>Entrada*</strong></li>
+          </ul>
+          <p class="note-italic">*Aplican para el combo ejecutivo</p>
+        </div>
+
+        <div class="precios-bar">
+          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS SIN IVA</div>
+          <div class="precios-grid">
+            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.015,00</span></div>
+            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.260,00</span></div>
+            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.610,62</span></div>
+            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.610,62</span></div>
+            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.260,00</span></div>
+            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.610,62</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIÉRCOLES -->
+      <div id="dia-miercoles" class="dia-content">
+        <div class="dia-header">Miércoles</div>
+        <div class="dia-sub">Menú del día — 05 de agosto</div>
+
+        <div class="dia-block">
+          <span class="dia-block-title">Plato principal</span>
+          <ul class="dia-items">
+            <li>Muslo de pollo en salsa criolla</li>
+            <li>Albóndigas en salsa oscura</li>
+            <li>Tortas de lentejas en salsa verde <span class="veg-badge">🌿 Veg</span></li>
+          </ul>
+          <p class="note-italic">Especial de miércoles: Chifrijo</p>
+        </div>
+
+        <div class="dia-block">
+          <span class="dia-block-title">Acompañamientos</span>
+          <ul class="dia-items">
+            <li>Arroz</li>
+            <li>Frijoles</li>
+            <li>Ensalada</li>
+            <li>Coliflor, zanahoria y maíz dulce</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
