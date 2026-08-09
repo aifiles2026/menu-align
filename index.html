@@ -337,6 +337,92 @@
     display: flex; align-items: center; gap: 6px;
   }
 
+  /* EVENTOS */
+  .eventos-wrapper {
+    background: var(--card-bg);
+    border: 1.5px solid var(--azul-mid);
+    border-radius: 0 0 14px 14px;
+    padding: 18px;
+    margin-bottom: 28px;
+  }
+  .eventos-intro {
+    font-size: 13px; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 16px;
+  }
+  .evt-cat {
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .evt-cat summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800; font-size: 15px;
+    color: var(--azul-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--azul-light);
+  }
+  .evt-cat summary::-webkit-details-marker { display: none; }
+  .evt-cat summary::after {
+    content: '+';
+    font-size: 20px; font-weight: 900;
+    color: var(--azul);
+    transition: transform .2s;
+  }
+  .evt-cat[open] summary::after { transform: rotate(45deg); }
+  .evt-body { padding: 16px 20px 18px; }
+  .evt-opt { margin-bottom: 14px; }
+  .evt-opt:last-child { margin-bottom: 0; }
+  .evt-opt-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800; font-size: 13.5px;
+    color: var(--text-dark); margin-bottom: 4px;
+  }
+  .evt-opt-desc {
+    font-size: 13px; color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .evt-veg {
+    font-size: 12.5px; color: #3a7d1e;
+    font-style: italic; margin-top: 3px;
+    line-height: 1.5;
+  }
+  .evt-cols {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  @media (max-width: 600px) {
+    .evt-cols { grid-template-columns: 1fr; }
+  }
+  .evt-note {
+    font-size: 12.5px; color: var(--text-light);
+    font-style: italic; margin-top: 10px;
+  }
+  .evt-list {
+    list-style: none;
+  }
+  .evt-list li {
+    font-size: 13px; color: var(--text-mid);
+    padding: 5px 0; border-bottom: 1px dashed var(--border);
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .evt-list li:last-child { border-bottom: none; }
+  .evt-list li::before {
+    content: '•'; color: var(--azul); font-size: 16px; flex-shrink: 0;
+  }
+  .evt-terms li {
+    font-size: 12.5px; color: var(--text-mid);
+    line-height: 1.6; margin-bottom: 8px;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .evt-terms { list-style: none; }
+  .evt-terms li::before {
+    content: '✓'; color: var(--azul); font-weight: 900; flex-shrink: 0;
+  }
+
   @media (max-width: 600px) {
     .cards-wrapper { grid-template-columns: 1fr; }
     .combo-price-col { flex-direction: row; flex-wrap: wrap; }
@@ -353,13 +439,14 @@
   <div class="logo-icon">🍽️</div>
   <div>
     <h1>Cafetería</h1>
-    <p>Semana del 03 al 08 de agosto, 2026</p>
+    <p>Semana del 10 al 15 de agosto, 2026</p>
   </div>
 </header>
 
 <!-- NAVEGACIÓN PRINCIPAL -->
 <nav class="nav-tabs">
-  <button class="nav-tab active" onclick="showSection('desayunos', this)">☀️ Desayunos</button>
+  <button class="nav-tab active" onclick="showSection('eventos', this)">🎉 Eventos Align</button>
+  <button class="nav-tab" onclick="showSection('desayunos', this)">☀️ Desayunos</button>
   <button class="nav-tab" onclick="showSection('dias', this)">📋 Menú del Día</button>
   <button class="nav-tab" onclick="showSection('grill', this)">🔥 Línea Grill</button>
   <button class="nav-tab" onclick="showSection('semana', this)">📅 Menú de la Semana</button>
@@ -367,8 +454,365 @@
 
 <main class="main">
 
+  <!-- ===== EVENTOS ALIGN ===== -->
+  <section id="sec-eventos" class="section active">
+    <div class="section-title">
+      EVENTOS ALIGN
+      <span class="section-subtitle">Catering para actividades especiales</span>
+    </div>
+    <div class="eventos-wrapper">
+      <p class="eventos-intro">Servicio de catering para eventos especiales: desayunos, brunch, coffee break, lunch box, almuerzos y postres, con opciones vegetarianas en la mayoría de categorías. Cotización según cantidad de personas, lugar y horario.</p>
+
+      <details class="evt-cat">
+        <summary>Desayunos <span></span></summary>
+        <div class="evt-body">
+          <p class="evt-note" style="margin-top:0; margin-bottom:10px;">Incluye servicio de buffet.</p>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Desayuno tipo americano</div>
+            <div class="evt-opt-desc">Mini parfait, huevo picado, tocineta, hashbrown, platón de panes (cangrejos, brioche, integral y masa madre) y jugo de naranja.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Desayuno Premium</div>
+            <div class="evt-opt-desc">Estación de panes dulces y salados. Estación de quesos y fiambres. Huevo picado. Bebida: jugo de naranja.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Sándwich de desayuno tipo Panini</div>
+            <div class="evt-opt-desc">Relleno a elegir: carne, pollo, jamón de pavo. Acompañado de tacita de uva, fresa y mango (puede variar por temporada) y jugo de naranja natural.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Pancakes con miel de maple</div>
+            <div class="evt-opt-desc">Parfait de frutas con yogurt y granola, jugo de frutas.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Desayuno costarricense</div>
+            <div class="evt-opt-desc">Tortilla criolla palmeada. Picadillo de papa con carne. Huevo picado o queso. Natilla o aguacate. Jugo de naranja.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Desayuno criollo</div>
+            <div class="evt-opt-desc">Gallo pinto. Carne en salsa. Queso a la plancha. Plátano maduro. Jugo de frutas.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Brunch</summary>
+        <div class="evt-body">
+          <ul class="evt-list">
+            <li>Brocheta Caprese con tomate cherry.</li>
+            <li>Mini ceviche de palmito o pejibaye.</li>
+            <li>Burrito de desayuno con pinto, tocineta y queso tierno.</li>
+            <li>Wrap de jamón de pavo o hummus con tortilla a las hierbas.</li>
+            <li>Mini pita con pollo grill en aderezo mostaza miel.</li>
+            <li>Mini shot de pie de limón.</li>
+            <li>Mini cheesecake (Oreo o Baileys).</li>
+            <li>Mini flan cubano.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Coffee Break</summary>
+        <div class="evt-body">
+          <div class="evt-cols">
+            <div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #1</div>
+                <div class="evt-opt-desc">Tres bocadillos tamaño pequeño (ver lista de bocadillos a elegir).</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #2</div>
+                <div class="evt-opt-desc">Tres bocadillos tamaño mediano (ver lista de bocadillos a elegir).</div>
+              </div>
+            </div>
+            <div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #3</div>
+                <div class="evt-opt-desc">Tres bocadillos, 2 tamaño pequeño y uno premium (ver lista de bocadillos a elegir).</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #4</div>
+                <div class="evt-opt-desc">Tres bocadillos, dos regulares tamaño mediano y uno premium.</div>
+              </div>
+            </div>
+          </div>
+          <p class="evt-note">Todas las opciones incluyen servicio de entrega empacado en cajitas kraft con ventanilla.</p>
+
+          <div class="evt-cols" style="margin-top:14px;">
+            <div>
+              <div class="evt-opt-title" style="margin-bottom:6px;">Bocadillo regular pequeño</div>
+              <ul class="evt-list">
+                <li>Hojaldre relleno de: dulce de leche, mora, guayaba, manzana, crema pastelera, fresa, piña.</li>
+                <li>Hojaldre de palmito, jamón, queso, enchilada de papa, pollo, carne mechada y carne molida.</li>
+              </ul>
+              <div class="evt-opt-title" style="margin:12px 0 6px;">Bocadillo regular mediano</div>
+              <ul class="evt-list">
+                <li>Empanada de piña.</li>
+                <li>Pañuelo de crema pastelera.</li>
+                <li>Flauta de guayaba, manzana, fresa o dulce de leche.</li>
+                <li>Flauta de jamón y queso.</li>
+                <li>Empanada de pollo o de carne mechada.</li>
+                <li>Pastel de palmito.</li>
+                <li>Enchilada de papa y carne.</li>
+                <li>Pastelito de carne molida.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="evt-opt-title" style="margin-bottom:6px;">Bocadillos premium</div>
+              <ul class="evt-list">
+                <li>Cupcake de zanahoria con lustre de queso crema y nueces.</li>
+                <li>Cangrejo con jamón, queso y pesto.</li>
+                <li>Canasta de pollo.</li>
+                <li>Tartaleta de crema con frutas.</li>
+                <li>Mini pita de pollo.</li>
+                <li>Mini club sándwich de jamón y tocineta.</li>
+                <li>Cupcake de chocolate.</li>
+                <li>Niditos con relleno de dulce de leche o fresa.</li>
+                <li>Empanadita de palmito.</li>
+                <li>Canastas de dip de pollo con tortilla de trigo.</li>
+                <li>Mini pie de chocolate o de limón.</li>
+                <li>Brownie con nueces.</li>
+                <li>Tostadas con queso crema y fruta caramelizada (melocotón, piña o fresa con menta).</li>
+                <li>Cangrejo dulce: chocolate, dulce de leche o crema pastelera.</li>
+                <li>Cupcake con fruta deshidratada.</li>
+                <li>Cangrejo salado: pollo, pizza o jamón de pavo.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Lunch Box</summary>
+        <div class="evt-body">
+          <div class="evt-opt">
+            <div class="evt-opt-title">Opción #1</div>
+            <div class="evt-opt-desc">Wrap de pollo estilo César, jugo de naranja 100%, galleta de arroz inflado cubierta de yogurt, banano.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Opción #2</div>
+            <div class="evt-opt-desc">Pan ciabatta de mano de piedra, yogurt con topping de granola con manzana verde grande.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Opción #3</div>
+            <div class="evt-opt-desc">Trenza especial de pollo, café frío Britt, fresas con leche condensada.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Opción #4</div>
+            <div class="evt-opt-desc">Poke de frutas rojas, snack saludable de palitos de aceite de oliva y agua alma.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Opción #5</div>
+            <div class="evt-opt-desc">Croissant de salami con salsa pizza y queso, yogurt de botella griego, barrita de cereal, aloe pequeño sin azúcar.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Opción #6</div>
+            <div class="evt-opt-desc">Pan brioche relleno de jamón de pavo, gratinado, tomate aderezado con orégano y albahaca, jugo de naranja 100%, galletas dulces Cosecha Dorada.</div>
+          </div>
+          <p class="evt-note">Precio incluye entrega y empaque.</p>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Almuerzos Ejecutivos</summary>
+        <div class="evt-body">
+          <div class="evt-cols">
+            <div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #1</div>
+                <div class="evt-opt-desc">Quesadilla de birria con caldo, ensalada (pico de gallo en cama de lechuga).</div>
+                <div class="evt-veg">Variación vegetariana: quesadilla caprese con salsa pizza.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #2</div>
+                <div class="evt-opt-desc">Churrasco de res a la parrilla con chimichurri argentino, puré de papa gratinado con queso mozzarella, pincho de vegetales, ensalada texana (lechuga, tocineta crujiente, tomate, chile jalapeño, doraditas).</div>
+                <div class="evt-veg">Variación vegetariana: arroz con palmito.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #3</div>
+                <div class="evt-opt-desc">Pechuga de pollo en salsa (chipotle, BBQ, blanca o amatriciana a base de tomate), puré de papa, mini vegetales, ensalada estilo italiano (lechuga, albahaca, espinaca, tomate cherry y queso).</div>
+                <div class="evt-veg">Variación vegetariana: vegetales (coliflor y berenjena) rebozados en pasta orly y bañados con salsa agridulce.</div>
+              </div>
+            </div>
+            <div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #4</div>
+                <div class="evt-opt-desc">Lomo de cerdo asado con cebolla caramelizada de vino tinto, arroz al curry, vegetales mixtos, ensalada oriental (lechuga, nueces, tomate y mandarina).</div>
+                <div class="evt-veg">Variación vegetariana: crema de pejibaye con queso y crotones.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #5</div>
+                <div class="evt-opt-desc">Hamburguesa de res tejana, pollo milanesa o pulled pork, papas bravas, ensalada verde tradicional.</div>
+                <div class="evt-veg">Variación vegetariana: hamburguesa de queso o berenjena empanizada.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #6</div>
+                <div class="evt-opt-desc">Cordon bleu de pollo en salsa blanca, puré de papa con espinaca, vegetales asados, ensalada hawaiana con piña y cerezas.</div>
+                <div class="evt-veg">Variación vegetariana: tomate gratinado.</div>
+              </div>
+            </div>
+          </div>
+          <p class="evt-note">Todas las opciones incluyen bebida natural y servicio de buffet o empaque.</p>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Almuerzos Ticos</summary>
+        <div class="evt-body">
+          <div class="evt-cols">
+            <div>
+              <div class="evt-opt-title" style="margin-bottom:6px;">Almuerzos ticos</div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #1 · Casado tradicional</div>
+                <div class="evt-opt-desc">Proteína a elegir: carne mechada, pollo en salsa, chuleta de cerdo, pollo a la plancha, pescado con limón o bistec de res. Acompañado con arroz, frijoles, vegetales, maduro y ensalada verde.</div>
+                <div class="evt-veg">Vegano: salteado de garbanzos, tortas de soya, crema de ayote, canelones de soya.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #2 · Caribeño</div>
+                <div class="evt-opt-desc">Rice and beans con pollo caribeño, plátano maduro y ensalada criolla (repollo, zanahoria, pico de gallo y culantro).</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #3 · Arrocito con pollo</div>
+                <div class="evt-opt-desc">Arroz con pollo, frijoles molidos, papas tostadas, ensalada verde o rusa.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #4 · Comida rápida</div>
+                <div class="evt-opt-desc">Chifrijo con doraditas, aguacate y pico de gallo.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #5 · Lasaña</div>
+                <div class="evt-opt-desc">Lasaña de pollo, pan con ajo, ensalada.</div>
+              </div>
+            </div>
+            <div>
+              <div class="evt-opt-title" style="margin-bottom:6px;">Más opciones ticas</div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #1</div>
+                <div class="evt-opt-desc">Lasaña de pollo en salsa blanca o de tomate, pan supremo y ensalada verde tradicional (lechuga, repollo morado, zanahoria, pepino, tomate y palmito).</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #2</div>
+                <div class="evt-opt-desc">Alitas de pollo fritas bañadas en la salsa de su elección: BBQ, mostaza o búfalo. Papas enrejadas y ensalada coleslaw.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #3</div>
+                <div class="evt-opt-desc">Costilla de cerdo (Saint Louis), elote amarillo con mantequilla aromatizada con ajo, ensalada con fresa.</div>
+                <div class="evt-veg">Variación vegetariana: tomate gratinado.</div>
+              </div>
+            </div>
+          </div>
+          <p class="evt-note">Todas las opciones incluyen bebida natural y servicio de buffet o empaque.</p>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Almuerzos Premium</summary>
+        <div class="evt-body">
+          <div class="evt-cols">
+            <div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #1</div>
+                <div class="evt-opt-desc">Medallones de pollo rellenos de queso gouda, chile morrón en salsa bechamel o rellenos de espinaca y queso ricotta con salsa florentina, acompañado de papas gratinadas y mini vegetales, ensalada verde frutal.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #2</div>
+                <div class="evt-opt-desc">Salmón en salsa de naranja o de eneldo, acompañado de brocheta de vegetales, papitas presidente y ensalada primavera de vegetales.</div>
+              </div>
+            </div>
+            <div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #3</div>
+                <div class="evt-opt-desc">Filete mignon bañado con una reducción de vinagre balsámico, sobre una cama de espárragos y zanahoria, acompañado de arroz con almendras y ensalada griega.</div>
+              </div>
+              <div class="evt-opt">
+                <div class="evt-opt-title">Opción #4</div>
+                <div class="evt-opt-desc">Lomito de res en salsa con hongos y stroganoff, acompañado de vegetales al ajillo, arroz confeti y ensalada de otoño.</div>
+              </div>
+            </div>
+          </div>
+          <p class="evt-note" style="margin-top:6px;"><strong>Opción vegana:</strong> risotto con champiñones y brócoli.</p>
+          <p class="evt-note">Todas las opciones incluyen bebida natural, mini postre y servicio de buffet o empaque.</p>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Postres</summary>
+        <div class="evt-body">
+          <div class="evt-opt">
+            <div class="evt-opt-title">Tres leches tradicional</div>
+            <div class="evt-opt-desc">Con dulce de leche o rompope.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Cheesecake</div>
+            <div class="evt-opt-desc">Fresa, maracuyá, mora, Oreo o dulce de leche.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Pie de limón</div>
+            <div class="evt-opt-desc">Mini pie horneado con base de masa y relleno de limón coronado con merengue.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Arroz con leche</div>
+            <div class="evt-opt-desc">Sabores: dulce de leche, ron con pasas, piña colada, churchill o tradicional.</div>
+          </div>
+          <div class="evt-opt">
+            <div class="evt-opt-title">Tiramisú</div>
+            <div class="evt-opt-desc">Postre frío italiano en capas de bizcocho humedecido en café con crema suave de huevo, azúcar y queso.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Food Truck VIP</summary>
+        <div class="evt-body">
+          <p class="evt-opt-desc">Cotice según cantidad de personas, lugar y horario de la actividad.</p>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Cumpleaños</summary>
+        <div class="evt-body">
+          <p class="evt-note" style="margin-top:0; margin-bottom:10px;">Combos de queque (20–24 porciones), helado y gaseosas.</p>
+          <ul class="evt-list">
+            <li>Tiramisú.</li>
+            <li>Queque tradicional de cumpleaños sabor a vainilla.</li>
+            <li>Torta chilena.</li>
+            <li>Carlota fría de melocotón.</li>
+            <li>Carlota fría de frutas.</li>
+            <li>Cheesecake de fresa.</li>
+            <li>Torta alemana de chocolate.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="evt-cat">
+        <summary>Información para solicitar su evento</summary>
+        <div class="evt-body">
+          <ul class="evt-terms">
+            <li>El tiempo mínimo para la solicitud del evento es de tres (3) días hábiles previos a su desarrollo, contando a partir del día siguiente de la solicitud. Ej.: si se requiere un jueves, el día de solicitud debe ser el lunes. Si es un miércoles, sería el viernes anterior.</li>
+            <li>Elegir la(s) opción(es) de menú disponibles. En caso de desear alguna variación, se puede realizar siempre y cuando el evento se confirme con 3 días hábiles de anticipación.</li>
+            <li>Cambios y cancelaciones se aceptan con 24 horas de anticipación.</li>
+          </ul>
+          <p class="evt-opt-title" style="margin-top:14px; margin-bottom:6px;">Información importante a detallar</p>
+          <ul class="evt-list">
+            <li>Nombre y teléfono del encargado del evento.</li>
+            <li>Cantidad de comensales.</li>
+            <li>Tiempos de comida requeridos (ej. desayuno y almuerzo).</li>
+            <li>Horas exactas de servicio.</li>
+            <li>Si requiere servicio tipo buffet o solo entrega empacada.</li>
+            <li>Si requiere servicio de saloneros a la mesa.</li>
+            <li>Si requiere contratar mantelería para las mesas y menaje especial.</li>
+            <li>Cantidad de horas que durará la actividad.</li>
+            <li>Si requiere servicio de bebidas y de qué tipo.</li>
+            <li>Sala o lugar exacto donde se va a realizar el evento.</li>
+            <li>Servicios adicionales: decoraciones especiales o temáticas, mesas redondas, cocteleras, música, ambientación, entregas puerta a puerta.</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
   <!-- ===== DESAYUNOS ===== -->
-  <section id="sec-desayunos" class="section active">
+  <section id="sec-desayunos" class="section">
     <div class="section-title">
       DESAYUNOS
       <span class="section-subtitle">Precio sin IVA</span>
@@ -467,7 +911,7 @@
   <section id="sec-semana" class="section">
     <div class="section-title">
       MENÚ DE LA SEMANA
-      <span class="section-subtitle">03 – 08 ago 2026</span>
+      <span class="section-subtitle">10 – 15 ago 2026</span>
     </div>
     <div style="background:#fff; border:1.5px solid var(--azul-mid); border-radius:0 0 14px 14px; padding:18px; margin-bottom:16px;">
       <div class="tabla-wrapper">
@@ -486,64 +930,64 @@
           <tbody>
             <tr>
               <td>P1</td>
-              <td>Filet de pescado a la plancha con aderezo de pepino</td>
-              <td>Filet de pollo en salsa miel jengibre</td>
-              <td>Muslo de pollo en salsa criolla</td>
-              <td>Dedos de pescado con salsa tártara</td>
-              <td>Pollo en salsa BBQ</td>
-              <td>Filet de tilapia con salsa ranch</td>
+              <td>Filet de pollo al ajillo</td>
+              <td>Filet de pescado cajun al horno</td>
+              <td>Pechuga de pollo en salsa oriental</td>
+              <td>Pescado en salsa de coco</td>
+              <td>Filet de tilapia en salsa rosada</td>
+              <td>Pollo con papas y chayote</td>
             </tr>
             <tr>
               <td>P2</td>
-              <td>Lonjas de res en salsa italiana</td>
-              <td>Bistec de cerdo estilo oriental</td>
-              <td>Albóndigas en salsa oscura</td>
-              <td>Chuleta de cerdo a la plancha con salsa agridulce</td>
-              <td>Bistec de res demi-glace</td>
-              <td>Cerdo a la naranja</td>
+              <td>Lomo de cerdo en salsa mostaza miel</td>
+              <td>Fajitas de res a la mexicana</td>
+              <td>Costilla de cerdo a las hierbas</td>
+              <td>Kalua pork</td>
+              <td>Bistec de cerdo con salsa criolla</td>
+              <td>Carne mechada en salsa oscura</td>
             </tr>
             <tr>
               <td>P3</td>
-              <td>Arroz con pollo</td>
-              <td>Lomo fingido relleno en salsa de hongos</td>
-              <td>–</td>
-              <td>Fetuccini con pollo y hongos en salsa blanca</td>
-              <td>Posta de cerdo con yuca</td>
+              <td>Burrito estilo mexicano (con carne mechada)</td>
+              <td>Garbanzos con muslito de pollo</td>
+              <td>⭐ ESPECIAL: Quesadilla de birria</td>
+              <td>Pollo relleno de jamón y queso con salsa de piña y cereza</td>
+              <td>Pastel de yuca con pollo</td>
               <td>–</td>
             </tr>
             <tr>
               <td>P4 <span class="veg-dot"></span></td>
-              <td>Flauta de queso en salsa pizza</td>
-              <td>Sopa de tomate con queso, crotones y aguacate</td>
-              <td>Tortas de lentejas en salsa verde</td>
-              <td>Quiche de vegetales</td>
-              <td>Papa fingida con queso</td>
-              <td>–</td>
+              <td>Spaguetti con salsa de tomate y albahaca</td>
+              <td>Queso argentino en salsa de fresa</td>
+              <td>Taco vegetariano tex mex con salsa de aguacate</td>
+              <td>Vegetariano: arroz con queso y vegetales</td>
+              <td>Tortas de maduro con frijol</td>
+              <td>Canelones con soya</td>
             </tr>
             <tr>
               <td>G1</td>
-              <td>Zuquini asado</td>
-              <td>Ayote tierno con vainica</td>
-              <td>Coliflor, zanahoria y maíz dulce</td>
-              <td>Zanahoria con ajonjolí</td>
-              <td>Vegetales al curry</td>
-              <td>Brócoli, vainica y zanahoria</td>
+              <td>Vainicas con chayote</td>
+              <td>Vegetales mixtos (coliflor, ayote y zanahoria)</td>
+              <td>Zucchini en rodajas con eneldo</td>
+              <td>Guiso de ayote tierno</td>
+              <td>Chayote cocoro con olores y maíz dulce</td>
+              <td>Brócoli, zapallo y chile dulce</td>
             </tr>
             <tr>
               <td>G2</td>
-              <td>Papas tostadas / Plátano maduro</td>
-              <td>Camote a la mantequilla / Plátano maduro</td>
+              <td>Pan cena / Plátano maduro</td>
+              <td>Papa semilla con mantequilla / Plátano maduro</td>
+              <td>Chips de yuca / Plátano maduro</td>
+              <td>Picadillo de plátano verde / Plátano maduro</td>
+              <td>Crema de ayote / Plátano maduro</td>
               <td>Doraditas / Plátano maduro</td>
-              <td>Pan de ajo / Plátano maduro</td>
-              <td>Ayote sazón al romero / Plátano maduro</td>
-              <td>Picadillo de papa sin carne / Plátano maduro</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="nota-tabla">
         <span class="veg-dot"></span> Vegano o vegetariano &nbsp;|&nbsp;
-        🌴 <strong>Especial miércoles:</strong> Chifrijo
+        🌴 <strong>Especial miércoles:</strong> Quesadilla de birria
       </div>
     </div>
   </section>
@@ -565,15 +1009,15 @@
       <!-- LUNES -->
       <div id="dia-lunes" class="dia-content active">
         <div class="dia-header">Lunes 🇨🇷</div>
-        <div class="dia-sub">Menú del día — 03 de agosto</div>
+        <div class="dia-sub">Menú del día — 10 de agosto</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Filet de pescado a la plancha con aderezo de pepino</li>
-            <li>Lonjas de res en salsa italiana</li>
-            <li>Arroz con pollo</li>
-            <li>Flauta de queso en salsa pizza <span class="veg-badge">🌿 Veg</span></li>
+            <li>Filet de pollo al ajillo</li>
+            <li>Lomo de cerdo en salsa mostaza miel</li>
+            <li>Burrito estilo mexicano (con carne mechada)</li>
+            <li>Spaguetti con salsa de tomate y albahaca <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -583,7 +1027,7 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Zuquini asado</li>
+            <li>Vainicas con chayote</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
@@ -606,15 +1050,15 @@
       <!-- MARTES -->
       <div id="dia-martes" class="dia-content">
         <div class="dia-header">Martes</div>
-        <div class="dia-sub">Menú del día — 04 de agosto</div>
+        <div class="dia-sub">Menú del día — 11 de agosto</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Filet de pollo en salsa miel jengibre</li>
-            <li>Bistec de cerdo estilo oriental</li>
-            <li>Lomo fingido relleno en salsa de hongos</li>
-            <li>Sopa de tomate con queso, crotones y aguacate <span class="veg-badge">🌿 Veg</span></li>
+            <li>Filet de pescado cajun al horno</li>
+            <li>Fajitas de res a la mexicana</li>
+            <li>Garbanzos con muslito de pollo</li>
+            <li>Queso argentino en salsa de fresa <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -624,7 +1068,7 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Ayote tierno con vainica</li>
+            <li>Vegetales mixtos (coliflor, ayote y zanahoria)</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
@@ -647,16 +1091,16 @@
       <!-- MIÉRCOLES -->
       <div id="dia-miercoles" class="dia-content">
         <div class="dia-header">Miércoles</div>
-        <div class="dia-sub">Menú del día — 05 de agosto</div>
+        <div class="dia-sub">Menú del día — 12 de agosto</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Muslo de pollo en salsa criolla</li>
-            <li>Albóndigas en salsa oscura</li>
-            <li>Tortas de lentejas en salsa verde <span class="veg-badge">🌿 Veg</span></li>
+            <li>Pechuga de pollo en salsa oriental</li>
+            <li>Costilla de cerdo a las hierbas</li>
+            <li>Taco vegetariano tex mex con salsa de aguacate <span class="veg-badge">🌿 Veg</span></li>
           </ul>
-          <p class="note-italic">Especial de miércoles: Chifrijo</p>
+          <p class="note-italic">⭐ Especial de miércoles: Quesadilla de birria</p>
         </div>
 
         <div class="dia-block">
@@ -665,7 +1109,7 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Coliflor, zanahoria y maíz dulce</li>
+            <li>Zucchini en rodajas con eneldo</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
@@ -688,15 +1132,15 @@
       <!-- JUEVES -->
       <div id="dia-jueves" class="dia-content">
         <div class="dia-header">Jueves</div>
-        <div class="dia-sub">Menú del día — 06 de agosto</div>
+        <div class="dia-sub">Menú del día — 13 de agosto</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Dedos de pescado con salsa tártara</li>
-            <li>Chuleta de cerdo a la plancha con salsa agridulce</li>
-            <li>Fetuccini con pollo y hongos en salsa blanca</li>
-            <li>Quiche de vegetales <span class="veg-badge">🌿 Veg</span></li>
+            <li>Pescado en salsa de coco</li>
+            <li>Kalua pork</li>
+            <li>Pollo relleno de jamón y queso con salsa de piña y cereza</li>
+            <li>Vegetariano: arroz con queso y vegetales <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -706,7 +1150,7 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Zanahoria con ajonjolí</li>
+            <li>Guiso de ayote tierno</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
@@ -729,15 +1173,15 @@
       <!-- VIERNES -->
       <div id="dia-viernes" class="dia-content">
         <div class="dia-header">Viernes</div>
-        <div class="dia-sub">Menú del día — 07 de agosto</div>
+        <div class="dia-sub">Menú del día — 14 de agosto</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Pollo en salsa BBQ</li>
-            <li>Bistec de res demi-glace</li>
-            <li>Posta de cerdo con yuca</li>
-            <li>Papa fingida con queso <span class="veg-badge">🌿 Veg</span></li>
+            <li>Filet de tilapia en salsa rosada</li>
+            <li>Bistec de cerdo con salsa criolla</li>
+            <li>Pastel de yuca con pollo</li>
+            <li>Tortas de maduro con frijol <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -747,7 +1191,7 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Vegetales al curry</li>
+            <li>Chayote cocoro con olores y maíz dulce</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
@@ -770,15 +1214,15 @@
       <!-- SÁBADO -->
       <div id="dia-sabado" class="dia-content">
         <div class="dia-header">Sábado</div>
-        <div class="dia-sub">Menú del día — 08 de agosto</div>
+        <div class="dia-sub">Menú del día — 15 de agosto</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Filet de tilapia con salsa ranch</li>
-            <li>Cerdo a la naranja</li>
+            <li>Pollo con papas y chayote</li>
+            <li>Carne mechada en salsa oscura</li>
+            <li>Canelones con soya <span class="veg-badge">🌿 Veg</span></li>
           </ul>
-          <p class="note-italic">Sin opción vegetariana este sábado</p>
         </div>
 
         <div class="dia-block">
@@ -787,7 +1231,7 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Brócoli, vainica y zanahoria</li>
+            <li>Brócoli, zapallo y chile dulce</li>
             <li><strong>Antojito especial*</strong></li>
             <li><strong>Entrada*</strong></li>
           </ul>
