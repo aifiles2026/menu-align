@@ -445,17 +445,17 @@
 
 <!-- NAVEGACIÓN PRINCIPAL -->
 <nav class="nav-tabs">
-  <button class="nav-tab active" onclick="showSection('eventos', this)">🎉 Eventos Align</button>
+  <button class="nav-tab active" onclick="showSection('grill', this)">🔥 Línea Grill</button>
+  <button class="nav-tab" onclick="showSection('eventos', this)">🎉 Eventos Align</button>
   <button class="nav-tab" onclick="showSection('desayunos', this)">☀️ Desayunos</button>
   <button class="nav-tab" onclick="showSection('dias', this)">📋 Menú del Día</button>
-  <button class="nav-tab" onclick="showSection('grill', this)">🔥 Línea Grill</button>
   <button class="nav-tab" onclick="showSection('semana', this)">📅 Menú de la Semana</button>
 </nav>
 
 <main class="main">
 
   <!-- ===== EVENTOS ALIGN ===== -->
-  <section id="sec-eventos" class="section active">
+  <section id="sec-eventos" class="section">
     <div class="section-title">
       EVENTOS ALIGN
       <span class="section-subtitle">Catering para actividades especiales</span>
@@ -857,52 +857,214 @@
   </section>
 
   <!-- ===== LÍNEA GRILL ===== -->
-  <section id="sec-grill" class="section">
+  <section id="sec-grill" class="section active">
     <div class="section-title">
-      ALMUERZOS "LÍNEA GRILL"
-      <span class="section-subtitle">Precio sin IVA</span>
+      🔥 LÍNEA GRILL
+      <span class="section-subtitle">Precios con IVA incluido</span>
     </div>
     <div class="grill-grid">
 
+      <!-- ALMUERZOS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🍽️ ALMUERZOS — Platos Fuertes</div></div>
+      </div>
+
       <div class="grill-row">
         <div class="combo-card">
-          <div class="combo-name">COMBOS COMIDA RÁPIDA</div>
-          <div class="combo-desc" style="font-weight:700; margin-bottom:4px;">Opciones variadas y exquisitas:</div>
-          <div class="combo-desc">Hamburguesa artesanal con papas fritas, Papas supremas, Tacos de Birria con pico de gallo, Pizzas personales con pan de ajo.<br>Incluye: Acompañamiento + Bebida 🥤</div>
+          <div class="combo-name">🥩 CORTES FINOS</div>
+          <div class="combo-desc">Churrasco o Rib Eye + ensalada verde especial + acompañamiento + bebida natural</div>
         </div>
         <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column; gap:5px;">
-            <span class="price-num">₡2.610,62</span>
-            <span class="price-plus">⭐ Hazlo PLUS por ₡885<br>Postre y Gaseosa 350ml</span>
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡4.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
           </div>
         </div>
       </div>
 
       <div class="grill-row">
         <div class="combo-card">
-          <div class="combo-name">COMBOS EXPRESS</div>
-          <div class="combo-desc">• Quesoburguesa<br>• Sándwich de jamón y queso con pan panini<br>• Súper perro<br>Incluye: Papas fritas + Bebida 🥤</div>
+          <div class="combo-name">🍖 COSTILLA DE CERDO</div>
+          <div class="combo-desc">Costilla de cerdo + 1 acompañamiento + bebida natural</div>
         </div>
         <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column; gap:5px;">
-            <span class="price-num">₡2.260,00</span>
-            <span class="price-plus">⭐ Hazlo PLUS por ₡885<br>Postre y Gaseosa 350ml</span>
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡4.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
           </div>
         </div>
       </div>
 
       <div class="grill-row">
         <div class="combo-card">
-          <div class="combo-name">COMBOS BOWLS, WRAPS, ENSALADAS</div>
-          <div class="combo-desc">• Bowls (Pollo o Cerdo Teriyaki)<br>• Ensaladas clásicas (César, Jamón y queso)<br>• Wrap receta de la casa con pollo grill<br>Acompañados de entrada o sopita del día + Bebida 🥤</div>
+          <div class="combo-name">🍗 PECHUGA DE POLLO</div>
+          <div class="combo-desc">Pechuga de pollo + ensalada verde especial + acompañamiento + bebida natural</div>
         </div>
         <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column; gap:5px;">
-            <span class="price-num">₡2.610,62</span>
-            <span class="price-plus">⭐ Hazlo PLUS por ₡885<br>Postre y Gaseosa 350ml</span>
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
           </div>
         </div>
       </div>
+
+      <!-- GRILL EXPRESS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🔥 GRILL EXPRESS</div></div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">🍕 PIZZAS</div>
+          <div class="combo-desc">Pizzas con pan de ajo o ensalada + bebida natural</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">🌮 SUPER TACOS</div>
+          <div class="combo-desc">Super tacos + bebida natural</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">🌭 SUPER PERRO</div>
+          <div class="combo-desc">Super perro con bebida natural</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.554,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">🍗 ALITAS EMPANIZADAS</div>
+          <div class="combo-desc">3 unidades + acompañamiento + bebida natural</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">🌯 WRAP DE POLLO</div>
+          <div class="combo-desc">Wrap de pollo + acompañamiento + bebida natural</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">🍔 HAMBURGUESAS</div>
+          <div class="combo-desc">Hamburguesa + acompañamiento + bebida natural</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACOMPAÑAMIENTOS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥔 ACOMPAÑAMIENTOS</div><div class="combo-desc">Papa asada · Elote · Papas gajo</div></div>
+      </div>
+
+      <!-- SÁNDWICHES -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥪 SÁNDWICHES</div><div class="combo-desc">Pan ciabatta · Pan Baguetin · Pan Orégano parmesano</div></div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">Jamón y queso / Carne / Pollo</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡1.950,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grill-row">
+        <div class="combo-card">
+          <div class="combo-name">Salame / Roast Beef / Arreglado</div>
+        </div>
+        <div class="grill-price-wrap">
+          <div class="price-box" style="flex-direction:column;gap:4px;">
+            <span class="price-num">₡2.000,00</span>
+            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HUEVOS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🍳 HUEVOS</div></div>
+      </div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevo frito</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevos revueltos</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡400</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevos revueltos con ingredientes</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:0.85rem;">₡400 + ing.</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevo duro</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
+
+      <!-- INGREDIENTES EXTRA -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥬 INGREDIENTES EXTRA</div></div>
+      </div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Olores extra 30 g (chile verde, cebolla, tomate, cebollino)</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡150 c/u</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Lechuga, tomate, vegetales 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡150 c/u</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Aguacate porción</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
+
+      <!-- QUESOS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🧀 QUESOS</div></div>
+      </div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Queso blanco 40 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Tajada queso Mozzarella</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
+
+      <!-- EMBUTIDOS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥓 EMBUTIDOS</div></div>
+      </div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Jamón 1 tajada 23 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡250</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Jamón de pavo</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Mano de piedra tajada</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Tocineta 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Salame 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Peperoni 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
+
+      <!-- SALSAS -->
+      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
+        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🌶️ SALSAS</div></div>
+      </div>
+      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Salsas adicionales</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡150</span></div></div></div>
 
     </div>
   </section>
