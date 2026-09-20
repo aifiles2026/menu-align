@@ -1,1555 +1,847 @@
-<!DOCTYPE html>
-<html lang="es">
+html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FFFFFF">
 <title>Menú Cafetería</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --azul: #009ACE;
-    --azul-dark: #0078a8;
-    --azul-light: #e0f4fb;
-    --azul-mid: #b3e2f5;
-    --text-dark: #1a2e3a;
-    --text-mid: #3a5a6e;
-    --text-light: #6a8a9e;
-    --white: #ffffff;
-    --bg: #f4fafd;
-    --card-bg: #ffffff;
-    --border: #cdeaf6;
+  :root{
+    --red:#E8520A;
+    --red-dark:#7A1600;
+    --orange:#E8520A;
+    --blue:#009ACE;
+    --gold:#C4902A;
+    --black:#1A1A1A;
+    --charcoal:#2B2B2B;
+    --cream:#FFFFFF;
+    --white:#FFFFFF;
+    --line:#E4DDD0;
+    --green:#3F7D3A;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Nunito Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text-dark);
-    min-height: 100vh;
+  html{color-scheme:light only;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--white);
+    color:var(--black);
+    padding-bottom:70px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton',sans-serif;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
   }
 
   /* HEADER */
-  .site-header {
-    background: var(--azul);
-    padding: 22px 32px 18px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: 0 2px 12px rgba(0,154,206,0.18);
+  header{
+    background:var(--black);
+    color:var(--white);
+    padding:22px 16px 26px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
   }
-  .site-header .logo-icon {
-    width: 48px; height: 48px;
-    background: rgba(255,255,255,0.18);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px;
+  header::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--red) 0%, var(--blue) 100%);
   }
-  .site-header h1 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px; font-weight: 900;
-    color: #fff; letter-spacing: -0.3px;
+  header .eyebrow{
+    font-size:12px;
+    letter-spacing:3px;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:6px;
   }
-  .site-header p {
-    font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 400;
+  header h1{
+    font-size:clamp(30px,8vw,42px);
+    line-height:1;
   }
-
-  /* NAV TABS */
-  .nav-tabs {
-    background: var(--white);
-    border-bottom: 2px solid var(--azul-mid);
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-    gap: 0;
-    padding: 0 24px;
-  }
-  .nav-tabs::-webkit-scrollbar { display: none; }
-  .nav-tab {
-    padding: 14px 22px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 700;
-    color: var(--text-mid);
-    cursor: pointer;
-    border: none; background: none;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    white-space: nowrap;
-    transition: color .2s, border-color .2s;
-    letter-spacing: 0.2px;
-  }
-  .nav-tab:hover { color: var(--azul); }
-  .nav-tab.active {
-    color: var(--azul);
-    border-bottom-color: var(--azul);
+  header p{
+    margin-top:8px;
+    font-size:14px;
+    color:#D8D2C6;
+    font-weight:500;
   }
 
-  /* MAIN CONTENT */
-  .main { padding: 28px 24px 40px; max-width: 960px; margin: 0 auto; }
-
-  /* SECTION */
-  .section { display: none; }
-  .section.active { display: block; }
-
-  /* SECTION HEADER */
-  .section-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 20px; font-weight: 900;
-    color: var(--white);
-    background: var(--azul);
-    padding: 13px 22px;
-    border-radius: 12px 12px 0 0;
-    display: flex; align-items: center; gap: 10px;
-    letter-spacing: -0.2px;
+  /* NAV */
+  nav{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    padding:14px;
+    max-width:720px;
+    margin:0 auto;
   }
-  .section-subtitle {
-    font-size: 12px; font-weight: 600;
-    background: rgba(0,0,0,0.15);
-    padding: 3px 10px; border-radius: 8px;
-    margin-left: auto; letter-spacing: 0.3px;
+  nav button{
+    background:var(--white);
+    border:2px solid var(--black);
+    border-radius:10px;
+    padding:12px 6px;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.3px;
+    color:var(--black);
+    cursor:pointer;
+    transition:all .15s ease;
+    line-height:1.25;
   }
-
-  /* CARDS GRID */
-  .cards-wrapper {
-    background: var(--card-bg);
-    border: 1.5px solid var(--azul-mid);
-    border-radius: 0 0 14px 14px;
-    padding: 18px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-  .combo-card {
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 18px;
-    display: flex; flex-direction: column; gap: 5px;
-  }
-  .combo-name {
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px; font-weight: 800;
-    color: var(--text-dark);
-  }
-  .combo-desc {
-    font-size: 13px; color: var(--text-mid);
-    line-height: 1.55;
-  }
-  .combo-price-col {
-    display: flex; flex-direction: column; gap: 12px;
-  }
-  .price-box {
-    background: var(--azul-light);
-    border: 1.5px solid var(--azul-mid);
-    border-radius: 10px;
-    padding: 10px 18px;
-    display: flex; align-items: center; justify-content: center;
-    min-width: 130px;
-  }
-  .price-num {
-    font-family: 'Nunito', sans-serif;
-    font-size: 26px; font-weight: 900;
-    color: var(--azul-dark);
-    white-space: nowrap;
-  }
-  .price-plus {
-    font-size: 11px; font-weight: 700;
-    color: var(--white);
-    background: var(--azul);
-    border-radius: 6px;
-    padding: 3px 8px;
-    margin-top: 4px;
-    text-align: center;
+  nav button .ico{display:block;font-size:20px;margin-bottom:4px;}
+  nav button.active,
+  nav button:hover{
+    background:var(--red);
+    border-color:var(--red);
+    color:var(--white);
   }
 
-  /* LINEA GRILL - 3 combos stacked + prices */
-  .grill-grid {
-    background: var(--card-bg);
-    border: 1.5px solid var(--azul-mid);
-    border-radius: 0 0 14px 14px;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 28px;
+  main{max-width:720px;margin:0 auto;padding:0 14px;}
+  section{display:none;animation:fade .25s ease;}
+  section.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+  .section-head{
+    text-align:center;
+    margin:18px 0 14px;
   }
-  .grill-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    align-items: start;
+  .section-head h2{
+    font-size:26px;
+    color:var(--red);
   }
-  .grill-price-wrap {
-    display: flex; flex-direction: column; gap: 5px;
-    align-items: center; min-width: 130px;
+  .section-head span{
+    display:block;
+    font-size:13px;
+    font-weight:500;
+    color:#6b6b6b;
+    text-transform:none;
+    margin-top:2px;
   }
 
-  /* DÍAS */
-  .dias-nav {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 16px;
+  .week-badge{
+    background:var(--black);
+    color:var(--white);
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:20px;
+    font-size:12.5px;
+    font-weight:600;
+    margin:0 auto 16px;
+    text-align:center;
+    width:fit-content;
   }
-  .dia-btn {
-    padding: 9px 18px;
-    border: 1.5px solid var(--azul);
-    border-radius: 9px;
-    background: var(--white);
-    color: var(--azul-dark);
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 800;
-    cursor: pointer;
-    transition: background .2s, color .2s;
-    letter-spacing: 0.3px;
-  }
-  .dia-btn:hover { background: var(--azul-light); }
-  .dia-btn.active { background: var(--azul); color: #fff; }
+  .week-badge-wrap{text-align:center;}
 
-  .dia-content { display: none; }
-  .dia-content.active { display: block; }
+  /* PRICE BADGE (signature element) */
+  .price-badge{
+    background:var(--black);
+    color:var(--white);
+    width:74px;height:74px;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-family:'Anton',sans-serif;
+    line-height:1;
+    flex-shrink:0;
+    border:2px solid var(--gold);
+    transform:rotate(-6deg);
+  }
+  .price-badge small{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:8px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:2px;
+  }
+  .price-badge b{font-size:15px;}
 
-  .dia-header {
-    font-family: 'Nunito', sans-serif;
-    font-size: 26px; font-weight: 900;
-    color: var(--text-dark);
-    margin-bottom: 4px;
+  /* CARDS */
+  .card{
+    background:var(--white);
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:14px;
+    border:1px solid var(--line);
+    box-shadow:0 2px 0 rgba(0,0,0,0.04);
   }
-  .dia-sub {
-    font-size: 13px; color: var(--text-light);
-    margin-bottom: 18px;
+  .card-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
   }
-
-  .dia-block {
-    background: var(--card-bg);
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 14px;
+  .card-top h3{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:16px;
+    text-transform:none;
+    color:var(--black);
   }
-  .dia-block-title {
-    background: var(--azul);
-    color: #fff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px; font-weight: 800;
-    padding: 6px 14px;
-    border-radius: 7px;
-    display: inline-block;
-    margin-bottom: 12px;
-    letter-spacing: 0.3px;
+  .card-top .en{
+    display:block;
+    font-style:italic;
+    font-weight:500;
+    font-size:12.5px;
+    color:#8a8a8a;
+    margin-top:1px;
   }
-  .dia-items {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 7px;
+  .card p.desc{
+    font-size:13.5px;
+    color:#4a4a4a;
+    line-height:1.5;
+    margin-bottom:6px;
   }
-  .dia-items li {
-    font-size: 14px; color: var(--text-mid);
-    display: flex; align-items: flex-start; gap: 8px;
-    line-height: 1.4;
+  .card .includes{
+    font-size:11.5px;
+    color:#9a9a9a;
+    font-style:italic;
+    border-top:1px dashed var(--line);
+    padding-top:8px;
+    margin-top:8px;
   }
-  .dia-items li::before {
-    content: '•';
-    color: var(--azul);
-    font-size: 18px;
-    line-height: 1.1;
-    flex-shrink: 0;
-  }
-  .veg-badge {
-    font-size: 11px; background: #e8f5e1; color: #3a7d1e;
-    border-radius: 5px; padding: 1px 6px; font-weight: 700;
-    flex-shrink: 0; margin-top: 1px;
-  }
-  .note-italic {
-    font-size: 12px; color: var(--text-light);
-    font-style: italic; margin-top: 6px;
-  }
-
-  /* PRECIOS BAR */
-  .precios-bar {
-    background: var(--azul);
-    border-radius: 12px;
-    padding: 16px 22px;
-    margin-top: 14px;
-  }
-  .precios-bar-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px; font-weight: 800;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 12px;
-  }
-  .precios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 8px;
-  }
-  .precio-item {
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(255,255,255,0.1);
-    border-radius: 7px; padding: 7px 12px;
-  }
-  .precio-label { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 600; }
-  .precio-val { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 900; color: #fff; }
-
-  /* TABLA SEMANA */
-  .tabla-wrapper {
-    overflow-x: auto;
-    border: 1.5px solid var(--azul-mid);
-    border-radius: 12px;
-    background: var(--card-bg);
-  }
-  .tabla-menu {
-    width: 100%; border-collapse: collapse;
-    font-size: 12.5px;
-  }
-  .tabla-menu th {
-    background: var(--azul);
-    color: #fff;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: 13px;
-    padding: 11px 14px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  .tabla-menu th:first-child { text-align: left; width: 50px; }
-  .tabla-menu td {
-    padding: 9px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    color: var(--text-mid);
-    line-height: 1.4;
-    text-align: center;
-  }
-  .tabla-menu td:first-child {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900; font-size: 13px;
-    color: var(--azul-dark);
-    background: var(--azul-light);
-    text-align: center;
-    white-space: nowrap;
-  }
-  .tabla-menu tr:last-child td { border-bottom: none; }
-  .tabla-menu tr:nth-child(even) td:not(:first-child) { background: #f7fcfe; }
-  .veg-dot { display: inline-block; width: 8px; height: 8px; background: #4caf50; border-radius: 50%; margin-left: 4px; vertical-align: middle; }
-
-  .nota-tabla {
-    font-size: 12px; color: var(--text-light);
-    margin-top: 10px; font-style: italic;
-    display: flex; align-items: center; gap: 6px;
+  .veg-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    background:#EAF3E9;
+    color:var(--green);
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 8px;
+    border-radius:10px;
+    margin-bottom:6px;
   }
 
-  /* EVENTOS */
-  .eventos-wrapper {
-    background: var(--card-bg);
-    border: 1.5px solid var(--azul-mid);
-    border-radius: 0 0 14px 14px;
-    padding: 18px;
-    margin-bottom: 28px;
+  /* WEEK TABLE */
+  .day-block{
+    background:var(--white);
+    border-radius:14px;
+    border:1px solid var(--line);
+    margin-bottom:10px;
+    overflow:hidden;
   }
-  .eventos-intro {
-    font-size: 13px; color: var(--text-mid);
-    line-height: 1.55; margin-bottom: 16px;
+  .day-block summary{
+    list-style:none;
+    cursor:pointer;
+    padding:12px 16px;
+    background:var(--red);
+    color:var(--white);
+    font-weight:700;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
   }
-  .evt-cat {
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 12px;
-    overflow: hidden;
-    background: var(--bg);
+  .day-block summary::-webkit-details-marker{display:none;}
+  .day-block summary::after{content:"+";font-size:18px;}
+  .day-block[open] summary::after{content:"–";}
+  .day-block .day-body{padding:12px 16px 16px;}
+  .dish-row{
+    padding:8px 0;
+    border-bottom:1px solid var(--line);
   }
-  .evt-cat summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 14px 18px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: 15px;
-    color: var(--azul-dark);
-    display: flex; align-items: center; justify-content: space-between;
-    background: var(--azul-light);
+  .dish-row:last-child{border-bottom:none;}
+  .dish-row .es{font-weight:600;font-size:13.5px;}
+  .dish-row .en{font-style:italic;font-size:12px;color:#8a8a8a;}
+
+  /* PRICE LIST */
+  table.pricelist{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--white);
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:18px;
+    border:1px solid var(--line);
   }
-  .evt-cat summary::-webkit-details-marker { display: none; }
-  .evt-cat summary::after {
-    content: '+';
-    font-size: 20px; font-weight: 900;
-    color: var(--azul);
-    transition: transform .2s;
+  table.pricelist caption{
+    text-align:left;
+    background:var(--black);
+    color:var(--white);
+    padding:10px 14px;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
   }
-  .evt-cat[open] summary::after { transform: rotate(45deg); }
-  .evt-body { padding: 16px 20px 18px; }
-  .evt-opt { margin-bottom: 14px; }
-  .evt-opt:last-child { margin-bottom: 0; }
-  .evt-opt-title {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: 13.5px;
-    color: var(--text-dark); margin-bottom: 4px;
+  table.pricelist td{
+    padding:9px 14px;
+    font-size:13px;
+    border-bottom:1px solid var(--line);
   }
-  .evt-opt-desc {
-    font-size: 13px; color: var(--text-mid);
-    line-height: 1.55;
-  }
-  .evt-veg {
-    font-size: 12.5px; color: #3a7d1e;
-    font-style: italic; margin-top: 3px;
-    line-height: 1.5;
-  }
-  .evt-cols {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-  }
-  @media (max-width: 600px) {
-    .evt-cols { grid-template-columns: 1fr; }
-  }
-  .evt-note {
-    font-size: 12.5px; color: var(--text-light);
-    font-style: italic; margin-top: 10px;
-  }
-  .evt-list {
-    list-style: none;
-  }
-  .evt-list li {
-    font-size: 13px; color: var(--text-mid);
-    padding: 5px 0; border-bottom: 1px dashed var(--border);
-    display: flex; align-items: flex-start; gap: 8px;
-  }
-  .evt-list li:last-child { border-bottom: none; }
-  .evt-list li::before {
-    content: '•'; color: var(--azul); font-size: 16px; flex-shrink: 0;
-  }
-  .evt-terms li {
-    font-size: 12.5px; color: var(--text-mid);
-    line-height: 1.6; margin-bottom: 8px;
-    display: flex; gap: 8px; align-items: flex-start;
-  }
-  .evt-terms { list-style: none; }
-  .evt-terms li::before {
-    content: '✓'; color: var(--azul); font-weight: 900; flex-shrink: 0;
+  table.pricelist tr:last-child td{border-bottom:none;}
+  table.pricelist td:last-child{
+    text-align:right;
+    font-weight:700;
+    color:var(--red);
+    white-space:nowrap;
   }
 
-  @media (max-width: 600px) {
-    .cards-wrapper { grid-template-columns: 1fr; }
-    .combo-price-col { flex-direction: row; flex-wrap: wrap; }
-    .grill-row { grid-template-columns: 1fr; }
-    .nav-tab { padding: 12px 14px; font-size: 13px; }
-    .price-num { font-size: 20px; }
-    .main { padding: 16px 12px 32px; }
+  .antojitos{
+    background:var(--black);
+    color:var(--white);
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:18px;
+  }
+  .antojitos h3{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:14px;
+    color:var(--gold);
+    margin-bottom:10px;
+    text-transform:uppercase;
+  }
+  .antojitos .row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    font-size:13px;
+  }
+  .antojitos .row:last-child{border-bottom:none;}
+  .antojitos .row span:first-child{color:var(--gold);font-weight:600;}
+
+  .footnote{
+    text-align:center;
+    font-size:11px;
+    color:#9a9a9a;
+    padding:20px 10px 30px;
+  }
+
+  .split-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+
+  @media(min-width:600px){
+    nav{grid-template-columns:repeat(6,1fr);}
+  }
+  .promo-carousel{
+    position:relative;
+    max-width:900px;
+    margin:0 auto 28px auto;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+    aspect-ratio:16/11;
+    background:#111;
+  }
+  .promo-track{
+    display:flex;
+    height:100%;
+    transition:transform 0.45s ease;
+  }
+  .promo-slide{
+    min-width:100%;
+    height:100%;
+  }
+  .promo-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .promo-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.45);
+    color:#fff;
+    border:none;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:22px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+  }
+  .promo-arrow:hover{background:rgba(0,0,0,0.7);}
+  .promo-prev{left:12px;}
+  .promo-next{right:12px;}
+  .promo-dots{
+    position:absolute;
+    bottom:12px;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+  }
+  .promo-dots span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.5);
+    cursor:pointer;
+    display:inline-block;
+  }
+  .promo-dots span.active{background:#fff;}
+  @media (max-width:600px){
+    .promo-carousel{aspect-ratio:16/13;}
+  }
+  .promo-banner{
+    max-width:900px;
+    margin:0 auto 20px auto;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  }
+  .promo-banner img{
+    width:100%;
+    display:block;
   }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="logo-icon">🍽️</div>
-  <div>
-    <h1>Cafetería</h1>
-    <p>Semana del 14 al 19 de setiembre, 2026</p>
-  </div>
+<header>
+  <h1>Cafetería</h1>
+  <p>Menú semanal · Cocinado en sitio</p>
 </header>
 
-<!-- NAVEGACIÓN PRINCIPAL -->
-<nav class="nav-tabs">
-  <button class="nav-tab active" onclick="showSection('grill', this)">🔥 Línea Grill</button>
-  <button class="nav-tab" onclick="showSection('eventos', this)">🎉 Eventos Align</button>
-  <button class="nav-tab" onclick="showSection('desayunos', this)">☀️ Desayunos</button>
-  <button class="nav-tab" onclick="showSection('dias', this)">📋 Menú del Día</button>
-  <button class="nav-tab" onclick="showSection('semana', this)">📅 Menú de la Semana</button>
+<nav>
+  <button class="active" data-tab="cooked"><span class="ico">🔥</span>Cooked<br>to Order</button>
+  <button data-tab="executive"><span class="ico">⭐</span>Executive<br>Menu</button>
+  <button data-tab="special"><span class="ico">🌟</span>Special<br>Menu</button>
+  <button data-tab="grabgo"><span class="ico">🥡</span>Grab<br>&amp; Go</button>
+  <button data-tab="breakfast"><span class="ico">☀️</span>Breakfast</button>
+  <button data-tab="prices"><span class="ico">💰</span>Lista de<br>Precios</button>
+  <button data-tab="eventos"><span class="ico">🎉</span>Eventos</button>
 </nav>
 
-<main class="main">
+<main>
 
-  <!-- ===== EVENTOS ALIGN ===== -->
-  <section id="sec-eventos" class="section">
-    <div class="section-title">
-      EVENTOS ALIGN
-      <span class="section-subtitle">Catering para actividades especiales</span>
+  <!-- COOKED TO ORDER -->
+  <section id="cooked" class="active">
+    <div class="section-head">
+      <h2>🔥 Cooked to Order</h2>
+      <span>De 11:00 am a 2:00 pm · Pedilo en la línea de servicio</span>
     </div>
-    <div class="eventos-wrapper">
-      <p class="eventos-intro">Servicio de catering para eventos especiales: desayunos, brunch, coffee break, lunch box, almuerzos y postres, con opciones vegetarianas en la mayoría de categorías. Cotización según cantidad de personas, lugar y horario.</p>
 
-      <details class="evt-cat">
-        <summary>Desayunos <span></span></summary>
-        <div class="evt-body">
-          <p class="evt-note" style="margin-top:0; margin-bottom:10px;">Incluye servicio de buffet.</p>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Desayuno tipo americano</div>
-            <div class="evt-opt-desc">Mini parfait, huevo picado, tocineta, hashbrown, platón de panes (cangrejos, brioche, integral y masa madre) y jugo de naranja.</div>
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top">
+            <h3>Chicken breast / Beef steak
+              <span class="en">Pollo o res, a la orden</span>
+            </h3>
           </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Desayuno Premium</div>
-            <div class="evt-opt-desc">Estación de panes dulces y salados. Estación de quesos y fiambres. Huevo picado. Bebida: jugo de naranja.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Sándwich de desayuno tipo Panini</div>
-            <div class="evt-opt-desc">Relleno a elegir: carne, pollo, jamón de pavo. Acompañado de tacita de uva, fresa y mango (puede variar por temporada) y jugo de naranja natural.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Pancakes con miel de maple</div>
-            <div class="evt-opt-desc">Parfait de frutas con yogurt y granola, jugo de frutas.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Desayuno costarricense</div>
-            <div class="evt-opt-desc">Tortilla criolla palmeada. Picadillo de papa con carne. Huevo picado o queso. Natilla o aguacate. Jugo de naranja.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Desayuno criollo</div>
-            <div class="evt-opt-desc">Gallo pinto. Carne en salsa. Queso a la plancha. Plátano maduro. Jugo de frutas.</div>
-          </div>
+          <p class="desc">Elegí entre una jugosa pechuga de pollo o un bistec de res recién cocinado.<br>
+          <span style="font-style:italic;color:#8a8a8a;">Choose between a juicy steak or freshly cooked chicken.</span></p>
+          <p class="includes">Incluye: plato principal (buffet del día, incluye vegetariano), ensalada, entrada (sopa o caldo) y bebida.</p>
         </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Brunch</summary>
-        <div class="evt-body">
-          <ul class="evt-list">
-            <li>Brocheta Caprese con tomate cherry.</li>
-            <li>Mini ceviche de palmito o pejibaye.</li>
-            <li>Burrito de desayuno con pinto, tocineta y queso tierno.</li>
-            <li>Wrap de jamón de pavo o hummus con tortilla a las hierbas.</li>
-            <li>Mini pita con pollo grill en aderezo mostaza miel.</li>
-            <li>Mini shot de pie de limón.</li>
-            <li>Mini cheesecake (Oreo o Baileys).</li>
-            <li>Mini flan cubano.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Coffee Break</summary>
-        <div class="evt-body">
-          <div class="evt-cols">
-            <div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #1</div>
-                <div class="evt-opt-desc">Tres bocadillos tamaño pequeño (ver lista de bocadillos a elegir).</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #2</div>
-                <div class="evt-opt-desc">Tres bocadillos tamaño mediano (ver lista de bocadillos a elegir).</div>
-              </div>
-            </div>
-            <div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #3</div>
-                <div class="evt-opt-desc">Tres bocadillos, 2 tamaño pequeño y uno premium (ver lista de bocadillos a elegir).</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #4</div>
-                <div class="evt-opt-desc">Tres bocadillos, dos regulares tamaño mediano y uno premium.</div>
-              </div>
-            </div>
-          </div>
-          <p class="evt-note">Todas las opciones incluyen servicio de entrega empacado en cajitas kraft con ventanilla.</p>
-
-          <div class="evt-cols" style="margin-top:14px;">
-            <div>
-              <div class="evt-opt-title" style="margin-bottom:6px;">Bocadillo regular pequeño</div>
-              <ul class="evt-list">
-                <li>Hojaldre relleno de: dulce de leche, mora, guayaba, manzana, crema pastelera, fresa, piña.</li>
-                <li>Hojaldre de palmito, jamón, queso, enchilada de papa, pollo, carne mechada y carne molida.</li>
-              </ul>
-              <div class="evt-opt-title" style="margin:12px 0 6px;">Bocadillo regular mediano</div>
-              <ul class="evt-list">
-                <li>Empanada de piña.</li>
-                <li>Pañuelo de crema pastelera.</li>
-                <li>Flauta de guayaba, manzana, fresa o dulce de leche.</li>
-                <li>Flauta de jamón y queso.</li>
-                <li>Empanada de pollo o de carne mechada.</li>
-                <li>Pastel de palmito.</li>
-                <li>Enchilada de papa y carne.</li>
-                <li>Pastelito de carne molida.</li>
-              </ul>
-            </div>
-            <div>
-              <div class="evt-opt-title" style="margin-bottom:6px;">Bocadillos premium</div>
-              <ul class="evt-list">
-                <li>Cupcake de zanahoria con lustre de queso crema y nueces.</li>
-                <li>Cangrejo con jamón, queso y pesto.</li>
-                <li>Canasta de pollo.</li>
-                <li>Tartaleta de crema con frutas.</li>
-                <li>Mini pita de pollo.</li>
-                <li>Mini club sándwich de jamón y tocineta.</li>
-                <li>Cupcake de chocolate.</li>
-                <li>Niditos con relleno de dulce de leche o fresa.</li>
-                <li>Empanadita de palmito.</li>
-                <li>Canastas de dip de pollo con tortilla de trigo.</li>
-                <li>Mini pie de chocolate o de limón.</li>
-                <li>Brownie con nueces.</li>
-                <li>Tostadas con queso crema y fruta caramelizada (melocotón, piña o fresa con menta).</li>
-                <li>Cangrejo dulce: chocolate, dulce de leche o crema pastelera.</li>
-                <li>Cupcake con fruta deshidratada.</li>
-                <li>Cangrejo salado: pollo, pizza o jamón de pavo.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Lunch Box</summary>
-        <div class="evt-body">
-          <div class="evt-opt">
-            <div class="evt-opt-title">Opción #1</div>
-            <div class="evt-opt-desc">Wrap de pollo estilo César, jugo de naranja 100%, galleta de arroz inflado cubierta de yogurt, banano.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Opción #2</div>
-            <div class="evt-opt-desc">Pan ciabatta de mano de piedra, yogurt con topping de granola con manzana verde grande.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Opción #3</div>
-            <div class="evt-opt-desc">Trenza especial de pollo, café frío Britt, fresas con leche condensada.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Opción #4</div>
-            <div class="evt-opt-desc">Poke de frutas rojas, snack saludable de palitos de aceite de oliva y agua alma.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Opción #5</div>
-            <div class="evt-opt-desc">Croissant de salami con salsa pizza y queso, yogurt de botella griego, barrita de cereal, aloe pequeño sin azúcar.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Opción #6</div>
-            <div class="evt-opt-desc">Pan brioche relleno de jamón de pavo, gratinado, tomate aderezado con orégano y albahaca, jugo de naranja 100%, galletas dulces Cosecha Dorada.</div>
-          </div>
-          <p class="evt-note">Precio incluye entrega y empaque.</p>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Almuerzos Ejecutivos</summary>
-        <div class="evt-body">
-          <div class="evt-cols">
-            <div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #1</div>
-                <div class="evt-opt-desc">Quesadilla de birria con caldo, ensalada (pico de gallo en cama de lechuga).</div>
-                <div class="evt-veg">Variación vegetariana: quesadilla caprese con salsa pizza.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #2</div>
-                <div class="evt-opt-desc">Churrasco de res a la parrilla con chimichurri argentino, puré de papa gratinado con queso mozzarella, pincho de vegetales, ensalada texana (lechuga, tocineta crujiente, tomate, chile jalapeño, doraditas).</div>
-                <div class="evt-veg">Variación vegetariana: arroz con palmito.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #3</div>
-                <div class="evt-opt-desc">Pechuga de pollo en salsa (chipotle, BBQ, blanca o amatriciana a base de tomate), puré de papa, mini vegetales, ensalada estilo italiano (lechuga, albahaca, espinaca, tomate cherry y queso).</div>
-                <div class="evt-veg">Variación vegetariana: vegetales (coliflor y berenjena) rebozados en pasta orly y bañados con salsa agridulce.</div>
-              </div>
-            </div>
-            <div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #4</div>
-                <div class="evt-opt-desc">Lomo de cerdo asado con cebolla caramelizada de vino tinto, arroz al curry, vegetales mixtos, ensalada oriental (lechuga, nueces, tomate y mandarina).</div>
-                <div class="evt-veg">Variación vegetariana: crema de pejibaye con queso y crotones.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #5</div>
-                <div class="evt-opt-desc">Hamburguesa de res tejana, pollo milanesa o pulled pork, papas bravas, ensalada verde tradicional.</div>
-                <div class="evt-veg">Variación vegetariana: hamburguesa de queso o berenjena empanizada.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #6</div>
-                <div class="evt-opt-desc">Cordon bleu de pollo en salsa blanca, puré de papa con espinaca, vegetales asados, ensalada hawaiana con piña y cerezas.</div>
-                <div class="evt-veg">Variación vegetariana: tomate gratinado.</div>
-              </div>
-            </div>
-          </div>
-          <p class="evt-note">Todas las opciones incluyen bebida natural y servicio de buffet o empaque.</p>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Almuerzos Ticos</summary>
-        <div class="evt-body">
-          <div class="evt-cols">
-            <div>
-              <div class="evt-opt-title" style="margin-bottom:6px;">Almuerzos ticos</div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #1 · Casado tradicional</div>
-                <div class="evt-opt-desc">Proteína a elegir: carne mechada, pollo en salsa, chuleta de cerdo, pollo a la plancha, pescado con limón o bistec de res. Acompañado con arroz, frijoles, vegetales, maduro y ensalada verde.</div>
-                <div class="evt-veg">Vegano: salteado de garbanzos, tortas de soya, crema de ayote, canelones de soya.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #2 · Caribeño</div>
-                <div class="evt-opt-desc">Rice and beans con pollo caribeño, plátano maduro y ensalada criolla (repollo, zanahoria, pico de gallo y culantro).</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #3 · Arrocito con pollo</div>
-                <div class="evt-opt-desc">Arroz con pollo, frijoles molidos, papas tostadas, ensalada verde o rusa.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #4 · Comida rápida</div>
-                <div class="evt-opt-desc">Chifrijo con doraditas, aguacate y pico de gallo.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #5 · Lasaña</div>
-                <div class="evt-opt-desc">Lasaña de pollo, pan con ajo, ensalada.</div>
-              </div>
-            </div>
-            <div>
-              <div class="evt-opt-title" style="margin-bottom:6px;">Más opciones ticas</div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #1</div>
-                <div class="evt-opt-desc">Lasaña de pollo en salsa blanca o de tomate, pan supremo y ensalada verde tradicional (lechuga, repollo morado, zanahoria, pepino, tomate y palmito).</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #2</div>
-                <div class="evt-opt-desc">Alitas de pollo fritas bañadas en la salsa de su elección: BBQ, mostaza o búfalo. Papas enrejadas y ensalada coleslaw.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #3</div>
-                <div class="evt-opt-desc">Costilla de cerdo (Saint Louis), elote amarillo con mantequilla aromatizada con ajo, ensalada con fresa.</div>
-                <div class="evt-veg">Variación vegetariana: tomate gratinado.</div>
-              </div>
-            </div>
-          </div>
-          <p class="evt-note">Todas las opciones incluyen bebida natural y servicio de buffet o empaque.</p>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Almuerzos Premium</summary>
-        <div class="evt-body">
-          <div class="evt-cols">
-            <div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #1</div>
-                <div class="evt-opt-desc">Medallones de pollo rellenos de queso gouda, chile morrón en salsa bechamel o rellenos de espinaca y queso ricotta con salsa florentina, acompañado de papas gratinadas y mini vegetales, ensalada verde frutal.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #2</div>
-                <div class="evt-opt-desc">Salmón en salsa de naranja o de eneldo, acompañado de brocheta de vegetales, papitas presidente y ensalada primavera de vegetales.</div>
-              </div>
-            </div>
-            <div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #3</div>
-                <div class="evt-opt-desc">Filete mignon bañado con una reducción de vinagre balsámico, sobre una cama de espárragos y zanahoria, acompañado de arroz con almendras y ensalada griega.</div>
-              </div>
-              <div class="evt-opt">
-                <div class="evt-opt-title">Opción #4</div>
-                <div class="evt-opt-desc">Lomito de res en salsa con hongos y stroganoff, acompañado de vegetales al ajillo, arroz confeti y ensalada de otoño.</div>
-              </div>
-            </div>
-          </div>
-          <p class="evt-note" style="margin-top:6px;"><strong>Opción vegana:</strong> risotto con champiñones y brócoli.</p>
-          <p class="evt-note">Todas las opciones incluyen bebida natural, mini postre y servicio de buffet o empaque.</p>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Postres</summary>
-        <div class="evt-body">
-          <div class="evt-opt">
-            <div class="evt-opt-title">Tres leches tradicional</div>
-            <div class="evt-opt-desc">Con dulce de leche o rompope.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Cheesecake</div>
-            <div class="evt-opt-desc">Fresa, maracuyá, mora, Oreo o dulce de leche.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Pie de limón</div>
-            <div class="evt-opt-desc">Mini pie horneado con base de masa y relleno de limón coronado con merengue.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Arroz con leche</div>
-            <div class="evt-opt-desc">Sabores: dulce de leche, ron con pasas, piña colada, churchill o tradicional.</div>
-          </div>
-          <div class="evt-opt">
-            <div class="evt-opt-title">Tiramisú</div>
-            <div class="evt-opt-desc">Postre frío italiano en capas de bizcocho humedecido en café con crema suave de huevo, azúcar y queso.</div>
-          </div>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Food Truck VIP</summary>
-        <div class="evt-body">
-          <p class="evt-opt-desc">Cotice según cantidad de personas, lugar y horario de la actividad.</p>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Cumpleaños</summary>
-        <div class="evt-body">
-          <p class="evt-note" style="margin-top:0; margin-bottom:10px;">Combos de queque (20–24 porciones), helado y gaseosas.</p>
-          <ul class="evt-list">
-            <li>Tiramisú.</li>
-            <li>Queque tradicional de cumpleaños sabor a vainilla.</li>
-            <li>Torta chilena.</li>
-            <li>Carlota fría de melocotón.</li>
-            <li>Carlota fría de frutas.</li>
-            <li>Cheesecake de fresa.</li>
-            <li>Torta alemana de chocolate.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="evt-cat">
-        <summary>Información para solicitar su evento</summary>
-        <div class="evt-body">
-          <ul class="evt-terms">
-            <li>El tiempo mínimo para la solicitud del evento es de tres (3) días hábiles previos a su desarrollo, contando a partir del día siguiente de la solicitud. Ej.: si se requiere un jueves, el día de solicitud debe ser el lunes. Si es un miércoles, sería el viernes anterior.</li>
-            <li>Elegir la(s) opción(es) de menú disponibles. En caso de desear alguna variación, se puede realizar siempre y cuando el evento se confirme con 3 días hábiles de anticipación.</li>
-            <li>Cambios y cancelaciones se aceptan con 24 horas de anticipación.</li>
-          </ul>
-          <p class="evt-opt-title" style="margin-top:14px; margin-bottom:6px;">Información importante a detallar</p>
-          <ul class="evt-list">
-            <li>Nombre y teléfono del encargado del evento.</li>
-            <li>Cantidad de comensales.</li>
-            <li>Tiempos de comida requeridos (ej. desayuno y almuerzo).</li>
-            <li>Horas exactas de servicio.</li>
-            <li>Si requiere servicio tipo buffet o solo entrega empacada.</li>
-            <li>Si requiere servicio de saloneros a la mesa.</li>
-            <li>Si requiere contratar mantelería para las mesas y menaje especial.</li>
-            <li>Cantidad de horas que durará la actividad.</li>
-            <li>Si requiere servicio de bebidas y de qué tipo.</li>
-            <li>Sala o lugar exacto donde se va a realizar el evento.</li>
-            <li>Servicios adicionales: decoraciones especiales o temáticas, mesas redondas, cocteleras, música, ambientación, entregas puerta a puerta.</li>
-          </ul>
-        </div>
-      </details>
-
+        <div class="price-badge"><small>Only</small><b>₡2.500</b></div>
+      </div>
     </div>
-  </section>
 
-  <!-- ===== DESAYUNOS ===== -->
-  <section id="sec-desayunos" class="section">
-    <div class="section-title">
-      DESAYUNOS
-      <span class="section-subtitle">Precios con IVA incluido</span>
+    <div class="section-head" style="margin-top:26px;">
+      <h2 style="font-size:20px;">Opciones Executive</h2>
+      <span>Formatos ligeros, vegetarianos incluidos 🌿</span>
     </div>
-    <div class="cards-wrapper">
-      <!-- Card 1 -->
-      <div class="combo-card">
-        <div class="combo-name">COMBO TÍPICO – ECONÓMICO</div>
-        <div class="combo-desc">Gallo Pinto + 2 acompañamientos a elegir entre: <em>huevo, embutido, natilla, plátano maduro y pico de gallo</em> + Pan + Bebida 🥤</div>
-      </div>
-      <div class="combo-price-col">
-        <div class="price-box" style="flex-direction:column;gap:4px;"><span class="price-num">₡1.243</span><span style="font-size:0.7rem;color:#aaa;">IVA incluido</span></div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="combo-card">
-        <div class="combo-name">COMBO TÍPICO – ESPECIAL</div>
-        <div class="combo-desc">Gallo Pinto + 4 acompañamientos a elegir entre: <em>huevo, queso o natilla, embutido o plátano, pico de gallo</em> + Bebida 🥤</div>
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Salad<span class="en">Ensalada</span></h3></div>
+          <p class="desc">Plato principal (¼ proteína) + ¾ de ensalada (300 g).</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡2.500</b></div>
       </div>
-      <div class="combo-price-col">
-        <div class="price-box" style="flex-direction:column;gap:4px;"><span class="price-num">₡1.695</span><span style="font-size:0.7rem;color:#aaa;">IVA incluido</span></div>
-      </div>
+    </div>
 
-      <!-- Card 3 -->
-      <div class="combo-card">
-        <div class="combo-name">COMBO DESAYUNO AMERICANO 🥞</div>
-        <div class="combo-desc">Pancakes con miel o tostadas con jalea + huevo picado o frito + embutido + Bebida 🥤</div>
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Salad &amp; Vegetables<span class="en">Ensalada y vegetales</span></h3></div>
+          <p class="desc">Plato principal (¼ proteína) + ¼ vegetales + 200 g de ensalada (2/4).</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡2.500</b></div>
       </div>
-      <div class="combo-price-col">
-        <div class="price-box" style="flex-direction:column;gap:4px;"><span class="price-num">₡1.243</span><span style="font-size:0.7rem;color:#aaa;">IVA incluido</span></div>
-      </div>
+    </div>
 
-      <!-- Card 4 -->
-      <div class="combo-card">
-        <div class="combo-name">COMBO DESAYUNO LOW CARB 🥗</div>
-        <div class="combo-desc">Omelette del día o huevos rancheros (2 u.) + aguacate + ensalada + Bebida sin azúcar 🥤</div>
-      </div>
-      <div class="combo-price-col">
-        <div class="price-box" style="flex-direction:column;gap:4px;"><span class="price-num">₡1.243</span><span style="font-size:0.7rem;color:#aaa;">IVA incluido</span></div>
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Casado</h3></div>
+          <p class="desc">Plato principal (¼ proteína) + ensalada + leguminosas + arroz + vegetales.</p>
+          <p class="includes">*Aplica opción vegetariana/vegana. Incluye arroz, leguminosas, guarnición, entrada, ensalada y bebida.</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡2.500</b></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== LÍNEA GRILL ===== -->
-  <section id="sec-grill" class="section active">
-    <div class="section-title">
-      🔥 LÍNEA GRILL
-      <span class="section-subtitle">Precios con IVA incluido</span>
+  <!-- EXECUTIVE MENU (semanal) -->
+  <section id="executive">
+    <div class="section-head">
+      <h2>📅 Executive Menu</h2>
+      <span>Plato principal + acompañamientos</span>
     </div>
-    <p class="note-italic" style="margin: 10px 0 0 4px;">Nuestra Línea Grill rota diariamente para ofrecerte variedad, consulte el menú del día.</p>
+    <div class="week-badge-wrap"><div class="week-badge">Semana del 21 al 25 de setiembre, 2026 · ₡2.500</div></div>
 
-    <div style="background:#fff; border:1.5px solid var(--azul-mid); border-radius:14px; padding:18px; margin:14px 0 16px;">
-      <div class="combo-name" style="color:var(--azul);font-size:1rem; margin-bottom:10px;">📅 SEMANAL — LÍNEA GRILL</div>
-      <div class="tabla-wrapper">
-        <table class="tabla-menu">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Lunes</th>
-              <th>Martes</th>
-              <th>Miércoles</th>
-              <th>Jueves</th>
-              <th>Viernes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Corte 1</td>
-              <td>Churrasco</td>
-              <td>Churrasco</td>
-              <td>Churrasco</td>
-              <td>Churrasco</td>
-              <td>Churrasco</td>
-            </tr>
-            <tr>
-              <td>Corte 2</td>
-              <td>Salmón</td>
-              <td>Costilla</td>
-              <td>Salmón</td>
-              <td>Costilla</td>
-              <td>Parrillada</td>
-            </tr>
-            <tr>
-              <td>Rápida 1 (Pollo)</td>
-              <td>Milanesa</td>
-              <td>Nuggets</td>
-              <td>Milanesa</td>
-              <td>Nuggets</td>
-              <td>Muslo y cuarto</td>
-            </tr>
-            <tr>
-              <td>Rápida 2</td>
-              <td>Hamburguesa de res</td>
-              <td>Hamburguesa de pollo</td>
-              <td>Hamburguesa de res</td>
-              <td>Hamburguesa de pollo</td>
-              <td>Hamburguesa de res</td>
-            </tr>
-            <tr>
-              <td>Rápida 3</td>
-              <td>Nachos de mechada</td>
-              <td>Papas supremas</td>
-              <td>Nachos de pollo</td>
-              <td>Tacos ticos</td>
-              <td>Super perro</td>
-            </tr>
-            <tr>
-              <td>Ensalada verde</td>
-              <td>César</td>
-              <td>Atún</td>
-              <td>Oriental</td>
-              <td>César</td>
-              <td>Chef</td>
-            </tr>
-            <tr>
-              <td>Wrap 1</td>
-              <td>Fajitas de pollo</td>
-              <td>Fajitas de pollo</td>
-              <td>Fajitas de pollo</td>
-              <td>Fajitas de pollo</td>
-              <td>Fajitas de pollo</td>
-            </tr>
-            <tr>
-              <td>Wrap 2</td>
-              <td>Fajitas de res</td>
-              <td>Mechada</td>
-              <td>Fajitas de res</td>
-              <td>Mechada</td>
-              <td>Fajitas de res</td>
-            </tr>
-            <tr>
-              <td>Pizza</td>
-              <td>Jamón y queso</td>
-              <td>Jamón y hongos</td>
-              <td>Jamón y queso</td>
-              <td>Jamón y hongos</td>
-              <td>Jamón y queso</td>
-            </tr>
-            <tr>
-              <td>Pizza</td>
-              <td>Suprema</td>
-              <td>Peperonni</td>
-              <td>Suprema</td>
-              <td>Peperonni</td>
-              <td>Suprema</td>
-            </tr>
-            <tr>
-              <td>Acomp. 1</td>
-              <td>Papas fritas</td>
-              <td>Papas fritas</td>
-              <td>Papas fritas</td>
-              <td>Papas fritas</td>
-              <td>Papas fritas</td>
-            </tr>
-            <tr>
-              <td>Acomp. 2</td>
-              <td>Aros</td>
-              <td>Papas bravas</td>
-              <td>Aros</td>
-              <td>Papas bravas</td>
-              <td>Aros</td>
-            </tr>
-          </tbody>
-        </table>
+    <details class="day-block" open>
+      <summary>Monday · Lunes 21</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Filete de pescado en salsa de perejil</div><div class="en">Fish fillet in parsley sauce</div></div>
+        <div class="dish-row"><div class="es">Fajitas de pollo con chile dulce</div><div class="en">Chicken fajitas with bell pepper</div></div>
+        <div class="dish-row"><span class="veg-tag">🌿 Veg</span><div class="es">Croqueta de plátano maduro con queso y frijol</div><div class="en">Sweet plantain croquette with cheese and beans</div></div>
       </div>
-    </div>
+    </details>
 
-    <div class="grill-grid">
-
-      <!-- ALMUERZOS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🍽️ ALMUERZOS — GRILL GOURMET</div></div>
+    <details class="day-block">
+      <summary>Tuesday · Martes 22</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Lonjas de res en salsa de romero y hongos</div><div class="en">Beef strips in rosemary-mushroom sauce</div></div>
+        <div class="dish-row"><div class="es">Garbanzos con pollo y vegetales</div><div class="en">Chickpeas with chicken and vegetables</div></div>
+        <div class="dish-row"><span class="veg-tag">🌿 Veg</span><div class="es">Chili con carne de soya</div><div class="en">Soy chili</div></div>
       </div>
+    </details>
 
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🥩 CORTES FINOS</div>
-          <div class="combo-desc">Churrasco o Rib Eye + ensalada verde especial + acompañamiento + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡4.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
+    <details class="day-block">
+      <summary>Wednesday · Miércoles 23</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Pollo a la plancha</div><div class="en">Grilled chicken breast</div></div>
+        <div class="dish-row"><div class="es">Albóndigas de res en salsa de estragón</div><div class="en">Beef meatballs in tarragon sauce</div></div>
+        <div class="dish-row"><span class="veg-tag">🌿 Veg</span><div class="es">Tomate relleno con carne de soya</div><div class="en">Tomato stuffed with soy meat</div></div>
       </div>
+    </details>
 
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🍖 COSTILLA DE CERDO</div>
-          <div class="combo-desc">Costilla de cerdo + ensalada verde especial + acompañamiento + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡4.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
+    <details class="day-block">
+      <summary>Thursday · Jueves 24</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Filete de pescado a la mantequilla y albahaca</div><div class="en">Fish fillet in butter and basil sauce</div></div>
+        <div class="dish-row"><div class="es">Pulled pork</div><div class="en">Pulled pork</div></div>
+        <div class="dish-row"><span class="veg-tag">🌿 Veg</span><div class="es">Arroz con vegetales y queso</div><div class="en">Rice with vegetables and cheese</div></div>
       </div>
+    </details>
 
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🍗 PECHUGA DE POLLO</div>
-          <div class="combo-desc">Pechuga de pollo + ensalada verde especial + acompañamiento + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
+    <details class="day-block">
+      <summary>Friday · Viernes 25</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Lonja de cerdo en salsa criolla</div><div class="en">Pork chop in creole sauce</div></div>
+        <div class="dish-row"><div class="es">Pastel de papa con pollo</div><div class="en">Potato pie with chicken</div></div>
+        <div class="dish-row"><span class="veg-tag">🌿 Veg</span><div class="es">Pescozón de ayote con queso</div><div class="en">Squash and cheese fritter, egg-battered</div></div>
       </div>
+    </details>
 
-      <!-- GRILL EXPRESS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🔥 GRILL EXPRESS</div></div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🍕 PIZZAS</div>
-          <div class="combo-desc">Pizzas con pan de ajo o ensalada + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🌮 SUPER TACOS</div>
-          <div class="combo-desc">Super tacos + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🌭 SUPER PERRO</div>
-          <div class="combo-desc">Super perro con bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.554,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🍗 ALITAS EMPANIZADAS</div>
-          <div class="combo-desc">3 unidades + acompañamiento + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🌯 WRAP DE POLLO</div>
-          <div class="combo-desc">Wrap de pollo + acompañamiento + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">🍔 HAMBURGUESAS</div>
-          <div class="combo-desc">Hamburguesa + acompañamiento + bebida natural</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACOMPAÑAMIENTOS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥔 ACOMPAÑAMIENTOS</div><div class="combo-desc">Papa asada · Elote · Papas gajo</div></div>
-      </div>
-
-      <!-- SÁNDWICHES -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥪 SÁNDWICHES</div><div class="combo-desc">Pan ciabatta · Pan Baguetin · Pan Orégano parmesano</div></div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">Jamón y queso / Carne / Pollo</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡1.950,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grill-row">
-        <div class="combo-card">
-          <div class="combo-name">Salame / Roast Beef / Arreglado</div>
-        </div>
-        <div class="grill-price-wrap">
-          <div class="price-box" style="flex-direction:column;gap:4px;">
-            <span class="price-num">₡2.000,00</span>
-            <span style="font-size:0.7rem;color:#aaa;">IVA incluido</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- HUEVOS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🍳 HUEVOS</div></div>
-      </div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevo frito</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevos revueltos</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡400</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevos revueltos con ingredientes</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:0.85rem;">₡400 + ing.</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Huevo duro</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
-
-      <!-- INGREDIENTES EXTRA -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥬 INGREDIENTES EXTRA</div></div>
-      </div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Olores extra 30 g (chile verde, cebolla, tomate, cebollino)</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡150 c/u</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Lechuga, tomate, vegetales 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡150 c/u</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Aguacate porción</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
-
-      <!-- QUESOS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🧀 QUESOS</div></div>
-      </div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Queso blanco 40 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Tajada queso Mozzarella</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
-
-      <!-- EMBUTIDOS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🥓 EMBUTIDOS</div></div>
-      </div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Jamón 1 tajada 23 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡250</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Jamón de pavo</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Mano de piedra tajada</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡350</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Tocineta 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Salame 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Peperoni 30 g</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡500</span></div></div></div>
-
-      <!-- SALSAS -->
-      <div class="grill-row" style="background:#f4f8fb;border-radius:10px;padding:12px 0;margin-top:8px;">
-        <div class="combo-card"><div class="combo-name" style="color:var(--azul);font-size:1rem;">🌶️ SALSAS</div></div>
-      </div>
-      <div class="grill-row"><div class="combo-card"><div class="combo-desc">Salsas adicionales</div></div><div class="grill-price-wrap"><div class="price-box"><span class="price-num" style="font-size:1rem;">₡150</span></div></div></div>
-
-    </div>
+    <p class="footnote">*Incluye: Arroz, leguminosas, guarnición/vegetales, ensalada, entrada y bebida.</p>
   </section>
 
-  <!-- ===== MENÚ DE LA SEMANA (tabla) ===== -->
-  <section id="sec-semana" class="section">
-    <div class="section-title">
-      MENÚ DE LA SEMANA
-      <span class="section-subtitle">14 – 19 set 2026</span>
+  <!-- SPECIAL MENU (semanal) -->
+  <section id="special">
+    <div class="section-head">
+      <h2 style="color:var(--blue);">🌟 Special Menu</h2>
+      <span>Un plato distinto cada día</span>
     </div>
-    <div style="background:#fff; border:1.5px solid var(--azul-mid); border-radius:0 0 14px 14px; padding:18px; margin-bottom:16px;">
-      <div class="tabla-wrapper">
-        <table class="tabla-menu">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Lunes (Típico) 🇨🇷</th>
-              <th>Martes</th>
-              <th>Miércoles</th>
-              <th>Jueves</th>
-              <th>Viernes</th>
-              <th>Sábado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>P1</td>
-              <td>Filet de pescado a la plancha con salsa caribeña</td>
-              <td>Filet de pollo en salsa miel jengibre</td>
-              <td>Muslo de pollo en salsa criolla</td>
-              <td>Dedos de pescado con salsa tártara</td>
-              <td>Pollo en salsa BBQ</td>
-              <td>Filet de tilapia con salsa ranch</td>
-            </tr>
-            <tr>
-              <td>P2</td>
-              <td>Lonjas de res en salsa tica</td>
-              <td>Bistec de cerdo estilo oriental</td>
-              <td>Albóndigas en salsa oscura</td>
-              <td>Chuleta de cerdo a la plancha con salsa agridulce</td>
-              <td>Bistec de res demi-glace</td>
-              <td>Cerdo a la naranja</td>
-            </tr>
-            <tr>
-              <td>P3</td>
-              <td>Arroz con pollo</td>
-              <td>Lomo fingido relleno en salsa de hongos</td>
-              <td>⭐ ESPECIAL: Chifrijo</td>
-              <td>Fetuccini con carne molida</td>
-              <td>Posta de cerdo con yuca</td>
-              <td>–</td>
-            </tr>
-            <tr>
-              <td>P4 <span class="veg-dot"></span></td>
-              <td>Sopa negra</td>
-              <td>Sopa de tomate con queso, crotones y aguacate</td>
-              <td>Tortas de lentejas en salsa verde</td>
-              <td>Quiche de vegetales</td>
-              <td>Papa fingida con queso</td>
-              <td>Casado campesino</td>
-            </tr>
-            <tr>
-              <td>G1</td>
-              <td>Picadillo mixto</td>
-              <td>Ayote tierno con vainica</td>
-              <td>Coliflor, zanahoria y maíz dulce</td>
-              <td>Zanahoria con ajonjolí</td>
-              <td>Vegetales al curry</td>
-              <td>Brócoli, vainica y zanahoria</td>
-            </tr>
-            <tr>
-              <td>G2</td>
-              <td>Papas tostadas / Plátano maduro</td>
-              <td>Camote a la mantequilla / Plátano maduro</td>
-              <td>Doraditas / Plátano maduro</td>
-              <td>Pan de ajo / Plátano maduro</td>
-              <td>Ayote sazón al romero / Plátano maduro</td>
-              <td>Picadillo de papa sin carne / Plátano maduro</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="week-badge-wrap"><div class="week-badge">Semana del 21 al 25 de setiembre, 2026 · ₡3.500</div></div>
+
+    <div class="card">
+      <div class="card-top"><h3>Monday · Texan beef burger<span class="en">Lunes 21 · Hamburguesa tejana</span></h3></div>
+      <p class="desc"><span style="font-style:italic;color:#8a8a8a;">Artisan beef burger.</span></p>
+    </div>
+    <div class="card">
+      <div class="card-top"><h3>Tuesday · Patacones with pork crackling<span class="en">Martes 22 · Patacones con chicharrón</span></h3></div>
+      <p class="desc"><span style="font-style:italic;color:#8a8a8a;">Crispy patacones with pork crackling.</span></p>
+    </div>
+    <div class="card">
+      <div class="card-top"><h3>Wednesday · Special shrimp rice<span class="en">Miércoles 23 · Arroz con camarones</span></h3></div>
+      <p class="desc"><span style="font-style:italic;color:#8a8a8a;">Special rice with shrimp.</span></p>
+    </div>
+    <div class="card">
+      <div class="card-top"><h3>Thursday · Argentine chicken milanese<span class="en">Jueves 24 · Pollo milanesa argentino</span></h3></div>
+      <p class="desc"><span style="font-style:italic;color:#8a8a8a;">With tomato and cheese.</span></p>
+    </div>
+    <div class="card">
+      <div class="card-top"><h3>Friday · Chicken twister<span class="en">Viernes 25 · Twister de pollo</span></h3></div>
+      <p class="desc"><span style="font-style:italic;color:#8a8a8a;">With ranch dressing.</span></p>
+    </div>
+    <p class="footnote">*Incluye: acompañamientos y bebida. Antojitos disponibles por separado — pedilos en la línea.</p>
+  </section>
+
+  <!-- GRAB & GO -->
+  <section id="grabgo">
+    <div class="section-head">
+      <h2 style="color:var(--blue);">🥡 Grab &amp; Go</h2>
+      <span>Listos para llevar</span>
+    </div>
+
+    <div class="card">
+      <div class="split-row">
+        <div><div class="card-top"><h3>Wraps y burritos</h3></div></div>
+        <div class="price-badge"><small>Only</small><b>₡3.000</b></div>
       </div>
-      <div class="nota-tabla">
-        <span class="veg-dot"></span> Vegano o vegetariano &nbsp;|&nbsp;
-        🌴 <strong>Especial miércoles:</strong> Chifrijo
+    </div>
+    <div class="card">
+      <div class="split-row">
+        <div><div class="card-top"><h3>Ensaladas</h3></div></div>
+        <div class="price-badge"><small>Only</small><b>₡3.950</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="split-row">
+        <div><div class="card-top"><h3>Sandwich</h3></div></div>
+        <div class="price-badge"><small>Only</small><b>₡2.600</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="split-row">
+        <div><div class="card-top"><h3>Lasañas</h3></div></div>
+        <div class="price-badge"><small>Only</small><b>₡3.000</b></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== MENÚ DEL DÍA (botones por día) ===== -->
-  <section id="sec-dias" class="section">
-    <div class="section-title">MENÚ DEL DÍA</div>
-    <div style="background:#fff; border:1.5px solid var(--azul-mid); border-radius:0 0 14px 14px; padding:20px; margin-bottom:16px;">
-
-      <div class="dias-nav">
-        <button class="dia-btn active" onclick="showDia('lunes', this)">Lunes</button>
-        <button class="dia-btn" onclick="showDia('martes', this)">Martes</button>
-        <button class="dia-btn" onclick="showDia('miercoles', this)">Miércoles</button>
-        <button class="dia-btn" onclick="showDia('jueves', this)">Jueves</button>
-        <button class="dia-btn" onclick="showDia('viernes', this)">Viernes</button>
-        <button class="dia-btn" onclick="showDia('sabado', this)">Sábado</button>
-      </div>
-
-      <!-- LUNES -->
-      <div id="dia-lunes" class="dia-content active">
-        <div class="dia-header">Lunes (Típico) 🇨🇷</div>
-        <div class="dia-sub">Menú del día — 14 de setiembre</div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Plato principal</span>
-          <ul class="dia-items">
-            <li>Filet de pescado a la plancha con salsa caribeña</li>
-            <li>Lonjas de res en salsa tica</li>
-            <li>Arroz con pollo</li>
-            <li>Sopa negra <span class="veg-badge">🌿 Veg</span></li>
-          </ul>
-        </div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Acompañamientos</span>
-          <ul class="dia-items">
-            <li>Arroz</li>
-            <li>Frijoles</li>
-            <li>Ensalada</li>
-            <li>Picadillo mixto</li>
-            <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*</strong></li>
-          </ul>
-          <p class="note-italic">*Aplican para el combo ejecutivo</p>
-        </div>
-
-        <div class="precios-bar">
-          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
-          <div class="precios-grid">
-            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
-            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MARTES -->
-      <div id="dia-martes" class="dia-content">
-        <div class="dia-header">Martes</div>
-        <div class="dia-sub">Menú del día — 15 de setiembre</div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Plato principal</span>
-          <ul class="dia-items">
-            <li>Filet de pollo en salsa miel jengibre</li>
-            <li>Bistec de cerdo estilo oriental</li>
-            <li>Lomo fingido relleno en salsa de hongos</li>
-            <li>Sopa de tomate con queso, crotones y aguacate <span class="veg-badge">🌿 Veg</span></li>
-          </ul>
-        </div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Acompañamientos</span>
-          <ul class="dia-items">
-            <li>Arroz</li>
-            <li>Frijoles</li>
-            <li>Ensalada</li>
-            <li>Ayote tierno con vainica</li>
-            <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*</strong></li>
-          </ul>
-          <p class="note-italic">*Aplican para el combo ejecutivo</p>
-        </div>
-
-        <div class="precios-bar">
-          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
-          <div class="precios-grid">
-            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
-            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MIÉRCOLES -->
-      <div id="dia-miercoles" class="dia-content">
-        <div class="dia-header">Miércoles</div>
-        <div class="dia-sub">Menú del día — 16 de setiembre</div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Plato principal</span>
-          <ul class="dia-items">
-            <li>Muslo de pollo en salsa criolla</li>
-            <li>Albóndigas en salsa oscura</li>
-            <li>Tortas de lentejas en salsa verde <span class="veg-badge">🌿 Veg</span></li>
-          </ul>
-          <p class="note-italic">⭐ Especial de miércoles: Chifrijo</p>
-        </div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Acompañamientos</span>
-          <ul class="dia-items">
-            <li>Arroz</li>
-            <li>Frijoles</li>
-            <li>Ensalada</li>
-            <li>Coliflor, zanahoria y maíz dulce</li>
-            <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*</strong></li>
-          </ul>
-          <p class="note-italic">*Aplican para el combo ejecutivo</p>
-        </div>
-
-        <div class="precios-bar">
-          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
-          <div class="precios-grid">
-            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
-            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- JUEVES -->
-      <div id="dia-jueves" class="dia-content">
-        <div class="dia-header">Jueves</div>
-        <div class="dia-sub">Menú del día — 17 de setiembre</div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Plato principal</span>
-          <ul class="dia-items">
-            <li>Dedos de pescado con salsa tártara</li>
-            <li>Chuleta de cerdo a la plancha con salsa agridulce</li>
-            <li>Fetuccini con carne molida</li>
-            <li>Quiche de vegetales <span class="veg-badge">🌿 Veg</span></li>
-          </ul>
-        </div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Acompañamientos</span>
-          <ul class="dia-items">
-            <li>Arroz</li>
-            <li>Frijoles</li>
-            <li>Ensalada</li>
-            <li>Zanahoria con ajonjolí</li>
-            <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*</strong></li>
-          </ul>
-          <p class="note-italic">*Aplican para el combo ejecutivo</p>
-        </div>
-
-        <div class="precios-bar">
-          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
-          <div class="precios-grid">
-            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
-            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- VIERNES -->
-      <div id="dia-viernes" class="dia-content">
-        <div class="dia-header">Viernes</div>
-        <div class="dia-sub">Menú del día — 18 de setiembre</div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Plato principal</span>
-          <ul class="dia-items">
-            <li>Pollo en salsa BBQ</li>
-            <li>Bistec de res demi-glace</li>
-            <li>Posta de cerdo con yuca</li>
-            <li>Papa fingida con queso <span class="veg-badge">🌿 Veg</span></li>
-          </ul>
-        </div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Acompañamientos</span>
-          <ul class="dia-items">
-            <li>Arroz</li>
-            <li>Frijoles</li>
-            <li>Ensalada</li>
-            <li>Vegetales al curry</li>
-            <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*</strong></li>
-          </ul>
-          <p class="note-italic">*Aplican para el combo ejecutivo</p>
-        </div>
-
-        <div class="precios-bar">
-          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
-          <div class="precios-grid">
-            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
-            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SÁBADO -->
-      <div id="dia-sabado" class="dia-content">
-        <div class="dia-header">Sábado</div>
-        <div class="dia-sub">Menú del día — 19 de setiembre</div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Plato principal</span>
-          <ul class="dia-items">
-            <li>Filet de tilapia con salsa ranch</li>
-            <li>Cerdo a la naranja</li>
-            <li>Casado campesino <span class="veg-badge">🌿 Veg</span></li>
-          </ul>
-        </div>
-
-        <div class="dia-block">
-          <span class="dia-block-title">Acompañamientos</span>
-          <ul class="dia-items">
-            <li>Arroz</li>
-            <li>Frijoles</li>
-            <li>Ensalada</li>
-            <li>Brócoli, vainica y zanahoria</li>
-            <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*</strong></li>
-          </ul>
-          <p class="note-italic">*Aplican para el combo ejecutivo</p>
-        </div>
-
-        <div class="precios-bar">
-          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
-          <div class="precios-grid">
-            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
-            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
-            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
-            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
-          </div>
-        </div>
-      </div>
-
+  <!-- BREAKFAST -->
+  <section id="breakfast">
+    <div class="section-head">
+      <h2>☀️ Breakfast</h2>
+      <span>Todas las mañanas</span>
     </div>
+
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Típico</h3></div>
+          <p class="desc">Gallo pinto + 2 acompañamientos a elegir (huevo, queso, plátano, natilla o embutido) + pan o tortilla + bebida.</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡1.500</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Típico 2</h3></div>
+          <p class="desc">Gallo pinto + 3 acompañamientos a elegir (huevo, queso, plátano, natilla o embutido) + bebida.</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡1.750</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Full</h3></div>
+          <p class="desc">Gallo pinto + 4 acompañamientos a elegir (huevo, queso, plátano, natilla, embutido o ensalada) + fruta + pan o tortilla + bebida.</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡2.500</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>American<span class="en">Americano</span></h3></div>
+          <p class="desc">Pancakes o tostadas (2 u.) + huevo + tocineta o embutido + miel o jalea + bebida.</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡1.850</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="split-row">
+        <div>
+          <div class="card-top"><h3>Low Carb</h3></div>
+          <p class="desc">Omelette (2 huevos) + ¼ de aguacate + ensalada verde o fruta + bebida.</p>
+        </div>
+        <div class="price-badge"><small>Only</small><b>₡1.500</b></div>
+      </div>
+    </div>
+
+    <p class="footnote">*Bebida incluida. No incluye refill. / Beverage included, refill not included.</p>
+  </section>
+
+  <!-- LISTA DE PRECIOS -->
+  <section id="prices">
+    <div class="section-head">
+      <h2>💰 Lista de Precios</h2>
+      <span>Precios en colones costarricenses</span>
+    </div>
+
+    <table class="pricelist">
+      <caption>Lunch</caption>
+      <tbody>
+        <tr><td>Rice / Arroz</td><td>₡350</td></tr>
+        <tr><td>Beans / Frijoles</td><td>₡350</td></tr>
+        <tr><td>Salad / Ensalada</td><td>₡600</td></tr>
+        <tr><td>Side / Guarnición</td><td>₡600</td></tr>
+        <tr><td>Plantain / Plátano maduro</td><td>₡400</td></tr>
+        <tr><td>Main course / Plato principal</td><td>₡1.500</td></tr>
+      </tbody>
+    </table>
+
+    <table class="pricelist">
+      <caption>Desserts — Postres</caption>
+      <tbody>
+        <tr><td>Cheesecake</td><td>₡2.150</td></tr>
+        <tr><td>Torta chilena</td><td>₡2.350</td></tr>
+        <tr><td>Queque de fresa o chocomenta</td><td>₡2.000</td></tr>
+      </tbody>
+    </table>
+
+    <div class="antojitos">
+      <h3>🍟 Antojitos del día</h3>
+      <div class="row"><span>Lunes</span><span>Aros de cebolla</span></div>
+      <div class="row"><span>Martes</span><span>Arroz con leche</span></div>
+      <div class="row"><span>Miércoles</span><span>Ceviche de pescado</span></div>
+      <div class="row"><span>Jueves</span><span>Papa asada con natilla</span></div>
+      <div class="row"><span>Viernes</span><span>Churro</span></div>
+    </div>
+
+    <p class="footnote">Precios en colones costarricenses (₡). *Imágenes con fines ilustrativos.</p>
+  </section>
+
+
+  <!-- ===== EVENTOS ===== -->
+  <section id="eventos">
+    <div class="section-head">
+      <h2>🎉 Eventos Especiales</h2>
+      <p style="font-size:0.85rem;color:#666;margin-top:4px;">Contacto: eventos@cocinartecr.com · Mín. 3 días hábiles de anticipación</p>
+    </div>
+
+    <details class="day-block" open>
+      <summary>☀️ Desayunos</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>Desayuno tipo americano</strong> — Mini Parfait, huevo picado, tocineta, hashbrown, platón de panes (cangrejos, brioche, integral y masa madre) y jugo de naranja.</div></div>
+        <div class="dish-row"><div class="es"><strong>Desayuno Premium</strong> — Estación de panes dulces y salados · Estación de quesos y fiambres · Huevo picado · Jugo de naranja.</div></div>
+        <div class="dish-row"><div class="es"><strong>Sándwich tipo Panini</strong> — Relleno a elegir: carne, pollo, jamón de pavo. Tacita de uva, fresa y mango + jugo de naranja natural.</div></div>
+        <div class="dish-row"><div class="es"><strong>Pancakes con miel de maple</strong> — Parfait de frutas con yogurt y granola, jugo de frutas.</div></div>
+        <div class="dish-row"><div class="es"><strong>Desayuno costarricense</strong> — Tortilla criolla · Picadillo de papa con carne · Huevo picado o queso · Natilla o aguacate · Jugo de naranja.</div></div>
+        <div class="dish-row"><div class="es"><strong>Desayuno criollo</strong> — Gallo pinto · Carne en salsa · Queso a la plancha · Plátano maduro · Jugo de frutas.</div></div>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>🥂 Brunch</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">• Brocheta Caprese con tomate cherry · Mini ceviche de palmito o pejibaye · Burrito de desayuno con pinto, tocineta y queso tierno · Wrap de jamón de pavo o hummus con tortilla a las hierbas · Mini pita con pollo grill en aderezo mostaza miel · Mini shot de pie de limón · Mini cheesecake (Oreo o Baileys) · Mini flan cubano</div></div>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>☕ Coffee Break — Bocadillos</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>#1</strong> Tres bocadillos pequeños · <strong>#2</strong> Tres bocadillos medianos · <strong>#3</strong> Dos pequeños + uno premium · <strong>#4</strong> Dos medianos + uno premium. <em>Empacado en cajitas kraft.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>Pequeño:</strong> Hojaldre dulce (dulce de leche, mora, guayaba, manzana, fresa, piña) o salado (palmito, jamón, queso, enchilada de papa, pollo, carne mechada).</div></div>
+        <div class="dish-row"><div class="es"><strong>Mediano:</strong> Empanada de piña · Pañuelo de crema pastelera · Flautas (guayaba, manzana, fresa, dulce de leche, jamón y queso) · Empanada de pollo o carne mechada · Pastel de palmito · Enchilada papa y carne · Pastelito de carne molida.</div></div>
+        <div class="dish-row"><div class="es"><strong>Premium:</strong> Cupcake zanahoria · Cangrejo jamón/queso/pesto · Canasta de pollo · Tartaleta de crema con frutas · Mini pita de pollo · Mini club sándwich · Cupcake de chocolate · Niditos · Empanadita de palmito · Mini pie de chocolate · Brownie con nueces · Tostadas con queso crema · Mini pie de limón · Cangrejo salado (pollo, pizza o jamón de pavo).</div></div>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>📦 Lunch Box</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>#1</strong> Wrap pollo César + jugo naranja + galleta arroz inflado + banano.</div></div>
+        <div class="dish-row"><div class="es"><strong>#2</strong> Pan ciabatta mano de piedra + yogurt con granola y manzana verde.</div></div>
+        <div class="dish-row"><div class="es"><strong>#3</strong> Trenza especial de pollo + café frío Britt + fresas con leche condensada.</div></div>
+        <div class="dish-row"><div class="es"><strong>#4</strong> Poke de frutas rojas + snack palitos aceite de oliva + Agua Alma.</div></div>
+        <div class="dish-row"><div class="es"><strong>#5</strong> Croissant de salami con salsa pizza y queso + yogurt griego + barrita de cereal + aloe sin azúcar.</div></div>
+        <div class="dish-row"><div class="es"><strong>#6</strong> Pan brioche con jamón de pavo gratinado + tomate al orégano y albahaca + jugo naranja + galletas Cosecha Dorada.</div></div>
+        <p class="footnote">Precio incluye entrega y empaque.</p>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>🍽️ Almuerzos Ejecutivos</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>#1</strong> Quesadilla de birria con caldo + ensalada. <em>Veg: Quesadilla caprese con salsa pizza.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>#2</strong> Churrasco a la parrilla con chimichurri + puré de papa gratinado + pincho de vegetales + ensalada texana. <em>Veg: Arroz con palmito.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>#3</strong> Pechuga de pollo en salsa (chipotle/BBQ/blanca/amatriciana) + puré de papa + mini vegetales + ensalada estilo italiano. <em>Veg: Vegetales rebozados pasta orly con salsa agridulce.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>#4</strong> Lomo de cerdo con cebolla caramelizada de vino tinto + arroz al curry + vegetales + ensalada oriental. <em>Veg: Crema de pejibaye con queso y crotones.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>#5</strong> Hamburguesa tejana / pollo milanesa / pulled pork + papas bravas + ensalada verde. <em>Veg: Hamburguesa de queso o berenjena empanizada.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>#6</strong> Cordon Bleu de pollo en salsa blanca + puré de papa con espinaca + vegetales asados + ensalada hawaiana. <em>Veg: Tomate gratinado.</em></div></div>
+        <p class="footnote">*Incluye bebida natural y servicio de buffet o empaque.</p>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>🇨🇷 Almuerzos Ticos</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>#1 Casado tradicional</strong> — Proteína a elegir (carne mechada, pollo, chuleta, pescado, bistec) + arroz, frijoles, vegetales, maduro, ensalada. <em>Vegano: garbanzos, tortas de soya, crema de ayote, canelones de soya.</em></div></div>
+        <div class="dish-row"><div class="es"><strong>#2 Caribeño</strong> — Rice and beans con pollo caribeño + plátano maduro + ensalada criolla.</div></div>
+        <div class="dish-row"><div class="es"><strong>#3 Arrocito con pollo</strong> — Arroz con pollo + frijoles molidos + papas tostadas + ensalada verde o rusa.</div></div>
+        <div class="dish-row"><div class="es"><strong>#4 Comida rápida</strong> — Chifrijo CocinArte con doraditas, aguacate y pico de gallo.</div></div>
+        <div class="dish-row"><div class="es"><strong>#5 Lasaña</strong> — Lasaña de pollo + pan con ajo + ensalada.</div></div>
+        <div class="dish-row"><div class="es"><strong>Más opciones:</strong> Alitas de pollo BBQ/mostaza/búfalo + papas enrejadas · Costilla de cerdo Saint Louis + elote + ensalada con fresa. <em>Veg: Tomate gratinado.</em></div></div>
+        <p class="footnote">*Incluye bebida natural y servicio de buffet o empaque.</p>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>⭐ Almuerzos Premium</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>#1</strong> Medallones de pollo rellenos de queso gouda/chile morrón en salsa bechamel o espinaca/ricotta con salsa florentina + papas gratinadas + ensalada verde frutal.</div></div>
+        <div class="dish-row"><div class="es"><strong>#2</strong> Salmón en salsa de naranja o eneldo + brocheta de vegetales + papitas presidente + ensalada primavera.</div></div>
+        <div class="dish-row"><div class="es"><strong>#3</strong> Filete Mignon con reducción balsámica + espárragos y zanahoria + arroz con almendras + ensalada griega.</div></div>
+        <div class="dish-row"><div class="es"><strong>#4</strong> Lomito de res en salsa Stroganoff con hongos + vegetales al ajillo + arroz confeti + ensalada de otoño.</div></div>
+        <div class="dish-row"><div class="es"><em>Opción vegana: Risotto con champiñones y brócoli.</em></div></div>
+        <p class="footnote">*Incluye bebida natural, mini postre y servicio de buffet o empaque.</p>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>🍰 Postres</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es"><strong>Tres leches</strong> — Con dulce de leche o rompope.</div></div>
+        <div class="dish-row"><div class="es"><strong>Cheesecake</strong> — Fresa, maracuyá, mora, Oreo o dulce de leche.</div></div>
+        <div class="dish-row"><div class="es"><strong>Pie de limón</strong> — Horneado con merengue.</div></div>
+        <div class="dish-row"><div class="es"><strong>Arroz con leche</strong> — Dulce de leche, ron con pasas, piña colada, churchill o tradicional.</div></div>
+        <div class="dish-row"><div class="es"><strong>Tiramisú</strong> — Postre frío italiano en capas de bizcocho con café y crema suave.</div></div>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>🎂 Combos Queque (20-24 porciones) + Helado y Gaseosas</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Tiramisú · Queque tradicional de vainilla · Torta Chilena · Carlota fría de melocotón · Carlota fría de frutas · Cheesecake de fresa · Torta alemana de chocolate</div></div>
+      </div>
+    </details>
+
+    <details class="day-block">
+      <summary>🚚 Food Truck VIP</summary>
+      <div class="day-body">
+        <div class="dish-row"><div class="es">Cotice según cantidad de personas, lugar y horario. <strong>eventos@cocinartecr.com</strong></div></div>
+      </div>
+    </details>
+
+    <div style="background:#fff8e6;border:1px solid #e8c84a;border-radius:12px;padding:18px;margin-top:20px;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:10px;color:#7a5c00;">📋 Condiciones del Servicio</h3>
+      <p style="font-size:0.82rem;line-height:1.8;color:#333;">
+        1. Solicitud a <strong>eventos@cocinartecr.com</strong><br>
+        2. Mínimo <strong>3 días hábiles</strong> de anticipación.<br>
+        3. Cambios y cancelaciones con <strong>24 horas</strong> de anticipación.<br>
+        4. Indicar: nombre y teléfono del encargado, cantidad de comensales, tiempos de comida, horas de servicio, buffet o empacado, saloneros, mantelería, bebidas, lugar del evento y servicios adicionales.
+      </p>
+    </div>
+
   </section>
 
 </main>
 
 <script>
-  function showSection(id, btn) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
-    document.getElementById('sec-' + id).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  function showDia(id, btn) {
-    document.querySelectorAll('.dia-content').forEach(d => d.classList.remove('active'));
-    document.querySelectorAll('.dia-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('dia-' + id).classList.add('active');
-    btn.classList.add('active');
-  }
+  const buttons = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('main section');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('active'));
+      sections.forEach(s=>s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
 </script>
+
 </body>
 </html>
