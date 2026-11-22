@@ -448,7 +448,7 @@
   <div class="logo-icon">🍽️</div>
   <div>
     <h1>Cafetería</h1>
-    <p>Semana del 16 al 20 de noviembre, 2026</p>
+    <p>Semana del 23 al 28 de noviembre, 2026</p>
   </div>
 </header>
 
@@ -902,6 +902,11 @@
       <span class="section-subtitle">Precios con IVA incluido</span>
     </div>
 
+    <div class="vid-especial" style="position:relative; border-radius:14px; overflow:hidden; margin:12px 0 16px; line-height:0;">
+      <video src="video/rice-and-beans-25nov.mp4" preload="auto" autoplay muted loop playsinline style="width:100%; height:auto; display:block; border:0;"></video>
+      <button type="button" class="rice-snd" onclick="toggleRiceSound(this)" aria-label="Activar o silenciar el sonido del video" style="position:absolute; right:10px; top:10px; line-height:1.2; font-family:inherit; font-weight:800; font-size:.8rem; color:#fff; background:rgba(0,120,168,.88); border:0; border-radius:999px; padding:8px 14px; cursor:pointer;">🔇 Activar sonido</button>
+    </div>
+
     <div style="border-radius:14px; overflow:hidden; margin:10px 0 16px; line-height:0;">
       <video id="grillVideoGrill" src="video/linea-grill.mp4" preload="auto" autoplay muted loop playsinline style="width:100%; height:auto; display:block; border:0;"></video>
     </div>
@@ -1236,7 +1241,12 @@
   <section id="sec-semana" class="section">
     <div class="section-title">
       MENÚ DE LA SEMANA
-      <span class="section-subtitle">16 – 20 nov 2026</span>
+      <span class="section-subtitle">23 – 28 nov 2026</span>
+    </div>
+
+    <div class="vid-especial" style="position:relative; border-radius:14px; overflow:hidden; margin:12px 0 16px; line-height:0;">
+      <video src="video/rice-and-beans-25nov.mp4" preload="metadata" autoplay muted loop playsinline style="width:100%; height:auto; display:block; border:0;"></video>
+      <button type="button" class="rice-snd" onclick="toggleRiceSound(this)" aria-label="Activar o silenciar el sonido del video" style="position:absolute; right:10px; top:10px; line-height:1.2; font-family:inherit; font-weight:800; font-size:.8rem; color:#fff; background:rgba(0,120,168,.88); border:0; border-radius:999px; padding:8px 14px; cursor:pointer;">🔇 Activar sonido</button>
     </div>
 
 
@@ -1254,56 +1264,63 @@
               <th>Miércoles</th>
               <th>Jueves</th>
               <th>Viernes</th>
+              <th>Sábado</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>P1</td>
-              <td>Pollo en salsa blanca de albahaca</td>
-              <td>Filete de pescado a la plancha con sofrito de olores</td>
-              <td>Chuleta ahumada en salsa BBQ</td>
-              <td>Pollo pizzaiola (pechuga deshuesada)</td>
-              <td>Filet de pescado en salsa romesco</td>
+              <td>Pechuga de pollo al achiote</td>
+              <td>Carne mechada estilo mexicano</td>
+              <td>Filet de pescado con salsa de tomate y chile morrón</td>
+              <td>Bistec de cerdo en salsa BBQ</td>
+              <td>Pechuga de pollo a la italiana</td>
+              <td>Filet de pescado al limón</td>
             </tr>
             <tr>
               <td>P2</td>
-              <td>Medallón de cerdo en salsa asiática</td>
-              <td>Bistec de res encebollado</td>
-              <td>Fajitas mixtas (res y pollo) con chile y cebolla</td>
-              <td>Cacho de lomo en salsa oscura con hongos</td>
-              <td>Trozos de cerdo BBQ</td>
+              <td>Chuleta de cerdo estilo criollo</td>
+              <td>Pollo en salsa teriyaki</td>
+              <td>Trozos de res strogonoff</td>
+              <td>Fajitas de pollo con hongos y palmito en salsa aurora</td>
+              <td>Tortas de carne molida de res en salsa oscura</td>
+              <td>Bistec de res en salsa de cebolla</td>
             </tr>
             <tr>
               <td>P3</td>
-              <td>Estofado de res</td>
-              <td>Arroz jardinero con pollo</td>
-              <td>Barbudos con queso 🌿</td>
-              <td>Chop suey con trozos de cerdo, jamón y vegetales</td>
-              <td>Quesadilla de carne mechada con guacamole</td>
+              <td>Picadillo de papa con carne tradicional</td>
+              <td>Spaghetti supremo en salsa de tomate</td>
+              <td><strong>⭐ Especial:</strong> Rice and beans con pollo en salsa caribeña</td>
+              <td>Pastel de yuca con carne de res</td>
+              <td>Garbanzos con cerdo</td>
+              <td>–</td>
             </tr>
             <tr>
               <td>P4 <span class="veg-dot"></span></td>
-              <td>Enyucado de queso con aderezo ranch</td>
-              <td>Papa a la mitad rellena de vegetales y queso</td>
-              <td><strong>⭐ Especial:</strong> Lasagna de pollo en salsa blanca y hongos, con pan de ajo y ensalada</td>
-              <td>Pastel de papa con vegetales</td>
-              <td>Crema de ayote sazón con queso y crotones (plato fuerte)</td>
+              <td>Pastel de plátano maduro con frijoles</td>
+              <td>Barbudos con queso tradicionales</td>
+              <td>Tortas de soya en salsa caribeña</td>
+              <td>Picadillo de papa con carne de soya</td>
+              <td>Arroz con palmito (estilo pastel)</td>
+              <td>Zucchini relleno con soya</td>
             </tr>
             <tr>
               <td>G1</td>
-              <td>Timbal de vegetales en lonjas</td>
-              <td>Picadillo de chayote con maíz</td>
-              <td>Coliflor con zanahoria</td>
-              <td>Brócoli y ayote tierno con olores</td>
-              <td>Vegetales al horno</td>
+              <td>Vegetales mixtos (brócoli, coliflor y zucchini)</td>
+              <td>Zucchini con zanahoria</td>
+              <td>Picadillo de chayote tradicional</td>
+              <td>Ayote tierno a la mexicana con tomate, cebolla y chile</td>
+              <td>Antipasto (zucchini, berenjena y tomate)</td>
+              <td>Vainicas salteadas con maíz dulce</td>
             </tr>
             <tr>
               <td>G2</td>
-              <td>Pan de ajo / Plátano maduro</td>
-              <td>Yuca al perejil / Plátano maduro</td>
+              <td>Camote al horno / Plátano maduro</td>
+              <td>Pan en rodaja especiado / Plátano maduro</td>
               <td>Doraditas / Plátano maduro</td>
-              <td>Chips de camote / Plátano maduro</td>
-              <td>Trozos de elote con olores / Plátano maduro</td>
+              <td>Papas con achiote / Plátano maduro</td>
+              <td>Elote con margarina / Plátano maduro</td>
+              <td>Puré de yuca / Plátano maduro</td>
             </tr>
           </tbody>
         </table>
@@ -1326,22 +1343,28 @@
         <button class="dia-btn" onclick="showDia('miercoles', this)">Miércoles</button>
         <button class="dia-btn" onclick="showDia('jueves', this)">Jueves</button>
         <button class="dia-btn" onclick="showDia('viernes', this)">Viernes</button>
+        <button class="dia-btn" onclick="showDia('sabado', this)">Sábado</button>
       </div>
 
       <!-- LUNES -->
       <div id="dia-lunes" class="dia-content active">
         <div class="dia-header">Lunes 🇨🇷</div>
-        <div class="dia-sub">Menú del día — 16 de noviembre</div>
+        <div class="dia-sub">Menú del día — 23 de noviembre</div>
+
+        <div class="vid-especial" style="position:relative; border-radius:14px; overflow:hidden; margin:12px 0 16px; line-height:0;">
+          <video src="video/rice-and-beans-25nov.mp4" preload="metadata" autoplay muted loop playsinline style="width:100%; height:auto; display:block; border:0;"></video>
+          <button type="button" class="rice-snd" onclick="toggleRiceSound(this)" aria-label="Activar o silenciar el sonido del video" style="position:absolute; right:10px; top:10px; line-height:1.2; font-family:inherit; font-weight:800; font-size:.8rem; color:#fff; background:rgba(0,120,168,.88); border:0; border-radius:999px; padding:8px 14px; cursor:pointer;">🔇 Activar sonido</button>
+        </div>
 
 
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Pollo en salsa blanca de albahaca</li>
-            <li>Medallón de cerdo en salsa asiática</li>
-            <li>Estofado de res</li>
-            <li>Enyucado de queso con aderezo ranch <span class="veg-badge">🌿 Veg</span></li>
+            <li>Pechuga de pollo al achiote</li>
+            <li>Chuleta de cerdo estilo criollo</li>
+            <li>Picadillo de papa con carne tradicional</li>
+            <li>Pastel de plátano maduro con frijoles <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -1351,9 +1374,9 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Timbal de vegetales en lonjas</li>
+            <li>Vegetales mixtos (brócoli, coliflor y zucchini)</li>
             <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*:</strong> Crema de espinacas</li>
+            <li><strong>Entrada*</strong></li>
           </ul>
           <p class="note-italic">*Aplican para el combo ejecutivo</p>
         </div>
@@ -1374,17 +1397,22 @@
       <!-- MARTES -->
       <div id="dia-martes" class="dia-content">
         <div class="dia-header">Martes</div>
-        <div class="dia-sub">Menú del día — 17 de noviembre</div>
+        <div class="dia-sub">Menú del día — 24 de noviembre</div>
+
+        <div class="vid-especial" style="position:relative; border-radius:14px; overflow:hidden; margin:12px 0 16px; line-height:0;">
+          <video src="video/rice-and-beans-25nov.mp4" preload="metadata" autoplay muted loop playsinline style="width:100%; height:auto; display:block; border:0;"></video>
+          <button type="button" class="rice-snd" onclick="toggleRiceSound(this)" aria-label="Activar o silenciar el sonido del video" style="position:absolute; right:10px; top:10px; line-height:1.2; font-family:inherit; font-weight:800; font-size:.8rem; color:#fff; background:rgba(0,120,168,.88); border:0; border-radius:999px; padding:8px 14px; cursor:pointer;">🔇 Activar sonido</button>
+        </div>
 
 
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Filete de pescado a la plancha con sofrito de olores</li>
-            <li>Bistec de res encebollado</li>
-            <li>Arroz jardinero con pollo</li>
-            <li>Papa a la mitad rellena de vegetales y queso <span class="veg-badge">🌿 Veg</span></li>
+            <li>Carne mechada estilo mexicano</li>
+            <li>Pollo en salsa teriyaki</li>
+            <li>Spaghetti supremo en salsa de tomate</li>
+            <li>Barbudos con queso tradicionales <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -1394,9 +1422,9 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Picadillo de chayote con maíz</li>
+            <li>Zucchini con zanahoria</li>
             <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*:</strong> Sopa negra con medio huevo duro</li>
+            <li><strong>Entrada*</strong></li>
           </ul>
           <p class="note-italic">*Aplican para el combo ejecutivo</p>
         </div>
@@ -1417,7 +1445,12 @@
       <!-- MIÉRCOLES -->
       <div id="dia-miercoles" class="dia-content">
         <div class="dia-header">Miércoles</div>
-        <div class="dia-sub">Menú del día — 18 de noviembre</div>
+        <div class="dia-sub">Menú del día — 25 de noviembre</div>
+
+        <div class="vid-especial" style="position:relative; border-radius:14px; overflow:hidden; margin:12px 0 16px; line-height:0;">
+          <video src="video/rice-and-beans-25nov.mp4" preload="metadata" autoplay muted loop playsinline style="width:100%; height:auto; display:block; border:0;"></video>
+          <button type="button" class="rice-snd" onclick="toggleRiceSound(this)" aria-label="Activar o silenciar el sonido del video" style="position:absolute; right:10px; top:10px; line-height:1.2; font-family:inherit; font-weight:800; font-size:.8rem; color:#fff; background:rgba(0,120,168,.88); border:0; border-radius:999px; padding:8px 14px; cursor:pointer;">🔇 Activar sonido</button>
+        </div>
 
 
 
@@ -1425,10 +1458,10 @@
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Chuleta ahumada en salsa BBQ</li>
-            <li>Fajitas mixtas (res y pollo) con chile y cebolla</li>
-            <li>Barbudos con queso <span class="veg-badge">🌿 Veg</span></li>
-            <li><span><strong>⭐ Especial del miércoles:</strong> Lasagna de pollo en salsa blanca y hongos, con pan de ajo y ensalada</span></li>
+            <li>Filet de pescado con salsa de tomate y chile morrón</li>
+            <li>Trozos de res strogonoff</li>
+            <li><span><strong>⭐ Especial del miércoles:</strong> Rice and beans con pollo en salsa caribeña</span></li>
+            <li>Tortas de soya en salsa caribeña <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -1438,9 +1471,9 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Coliflor con zanahoria</li>
+            <li>Picadillo de chayote tradicional</li>
             <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*:</strong> Caldo de pollo con cabello de ángel y verduras</li>
+            <li><strong>Entrada*</strong></li>
           </ul>
           <p class="note-italic">*Aplican para el combo ejecutivo</p>
         </div>
@@ -1461,15 +1494,15 @@
       <!-- JUEVES -->
       <div id="dia-jueves" class="dia-content">
         <div class="dia-header">Jueves</div>
-        <div class="dia-sub">Menú del día — 19 de noviembre</div>
+        <div class="dia-sub">Menú del día — 26 de noviembre</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Pollo pizzaiola (pechuga deshuesada)</li>
-            <li>Cacho de lomo en salsa oscura con hongos</li>
-            <li>Chop suey con trozos de cerdo, jamón y vegetales</li>
-            <li>Pastel de papa con vegetales <span class="veg-badge">🌿 Veg</span></li>
+            <li>Bistec de cerdo en salsa BBQ</li>
+            <li>Fajitas de pollo con hongos y palmito en salsa aurora</li>
+            <li>Pastel de yuca con carne de res</li>
+            <li>Picadillo de papa con carne de soya <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -1479,9 +1512,9 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Brócoli y ayote tierno con olores</li>
+            <li>Ayote tierno a la mexicana con tomate, cebolla y chile</li>
             <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*:</strong> Sopa de tomate</li>
+            <li><strong>Entrada*</strong></li>
           </ul>
           <p class="note-italic">*Aplican para el combo ejecutivo</p>
         </div>
@@ -1502,15 +1535,15 @@
       <!-- VIERNES -->
       <div id="dia-viernes" class="dia-content">
         <div class="dia-header">Viernes</div>
-        <div class="dia-sub">Menú del día — 20 de noviembre</div>
+        <div class="dia-sub">Menú del día — 27 de noviembre</div>
 
         <div class="dia-block">
           <span class="dia-block-title">Plato principal</span>
           <ul class="dia-items">
-            <li>Filet de pescado en salsa romesco</li>
-            <li>Trozos de cerdo BBQ</li>
-            <li>Quesadilla de carne mechada con guacamole</li>
-            <li>Crema de ayote sazón con queso y crotones (plato fuerte) <span class="veg-badge">🌿 Veg</span></li>
+            <li>Pechuga de pollo a la italiana</li>
+            <li>Tortas de carne molida de res en salsa oscura</li>
+            <li>Garbanzos con cerdo</li>
+            <li>Arroz con palmito (estilo pastel) <span class="veg-badge">🌿 Veg</span></li>
           </ul>
         </div>
 
@@ -1520,9 +1553,49 @@
             <li>Arroz</li>
             <li>Frijoles</li>
             <li>Ensalada</li>
-            <li>Vegetales al horno</li>
+            <li>Antipasto (zucchini, berenjena y tomate)</li>
             <li><strong>Antojito especial*</strong></li>
-            <li><strong>Entrada*:</strong> Caldo de res con vegetales</li>
+            <li><strong>Entrada*</strong></li>
+          </ul>
+          <p class="note-italic">*Aplican para el combo ejecutivo</p>
+        </div>
+
+        <div class="precios-bar">
+          <div class="precios-bar-title">COMBOS ALMUERZO · PRECIOS CON IVA INCLUIDO</div>
+          <div class="precios-grid">
+            <div class="precio-item"><span class="precio-label">Estándar</span><span class="precio-val">₡2.276,95</span></div>
+            <div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡2.553,80</span></div>
+            <div class="precio-item"><span class="precio-label">Comida rápida</span><span class="precio-val">₡2.950,00</span></div>
+            <div class="precio-item"><span class="precio-label">Bowls/Wraps/Ensaladas</span><span class="precio-val">₡2.950,00</span></div>
+            <div class="precio-item"><span class="precio-label">Express</span><span class="precio-val">₡2.553,80</span></div>
+            <div class="precio-item"><span class="precio-label">Esp. miércoles</span><span class="precio-val">₡2.950,00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SÁBADO -->
+      <div id="dia-sabado" class="dia-content">
+        <div class="dia-header">Sábado</div>
+        <div class="dia-sub">Menú del día — 28 de noviembre</div>
+
+        <div class="dia-block">
+          <span class="dia-block-title">Plato principal</span>
+          <ul class="dia-items">
+            <li>Filet de pescado al limón</li>
+            <li>Bistec de res en salsa de cebolla</li>
+            <li>Zucchini relleno con soya <span class="veg-badge">🌿 Veg</span></li>
+          </ul>
+        </div>
+
+        <div class="dia-block">
+          <span class="dia-block-title">Acompañamientos</span>
+          <ul class="dia-items">
+            <li>Arroz</li>
+            <li>Frijoles</li>
+            <li>Ensalada</li>
+            <li>Vainicas salteadas con maíz dulce</li>
+            <li><strong>Antojito especial*</strong></li>
+            <li><strong>Entrada*</strong></li>
           </ul>
           <p class="note-italic">*Aplican para el combo ejecutivo</p>
         </div>
